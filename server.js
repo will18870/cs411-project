@@ -13,8 +13,16 @@ app.get('/', (req, res) => {
     request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=0txRTCElnYysjp6wGw85pTQwcXUPIXfv', function (error, response, body) {
         if (!error && response.statusCode == 200) {
             info = JSON.parse(body)
+            eventList = info._embedded.events
             console.log(info)
-            res.send(info._embedded.events)
+            //res.send(info._embedded.events)
+
+            result = ""
+            for(let i = 0; i < eventList.length; i++) {
+                result += eventList[i].name + "\n";
+            }
+
+            res.send(result)
         }
         else {
             res.send('Hello World - google not work :(')
