@@ -1,46 +1,41 @@
 const express = require('express');
 const app = express();
+const request = require('request')
 const port = 3001;
 
 app.get('/', (req, res) => {
     res.send(`
-      <form action="/search" method="get">
+      <form action="/result" method="get">
         <input type="text" name="location" placeholder="Enter location">
         <button type="submit">Search</button>
       </form>
     `);
  });
 
-app.get('/search', (req, res) => {
-  const location = req.query.location;
-  
-  // call to the Discovery API with the specified location
-  const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${location}&apikey=pErWT0IpRWEX7HMp3QIvW6bVjjUgbKXT`;
-  
-  // axios for making HTTP requests 
-   const axios = require('axios');
-   axios.get(apiUrl)
-     .then(response => {
-       const concerts = response.data.events;
-       // Render the concert results to the user
-       res.send(`
-         <h2>Concerts in ${location}</h2>
-         <ul>
-           ${concerts.map(concert => `<li>${concert.name}</li>`).join('')}
-         </ul>
-       `);
-     })
-     .catch(error => {
-       console.error(error);
-       res.send('Error occurred');
-     });
+ const tmKey = '0txRTCElnYysjp6wGw85pTQwcXUPIXfv';
 
+ app.get('/result', (req, res) => {
+     request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=0txRTCElnYysjp6wGw85pTQwcXUPIXfv', function (error, response, body) {
+         if (!error && response.statusCode == 200) {
+             info = JSON.parse(body)
+             eventList = info._embedded.events
+             console.log(info)
+             //res.send(info._embedded.events)
  
-  
-  // For now, sending a placeholder response
-  res.send(`Search results for ${location}`);
+             result = ""
+             for(let i = 0; i < eventList.length; i++) {
+                 result += eventList[i].name + "\n";
+             }
+ 
+             res.send(result)
+         }
+         else {
+             res.send('Hello World - google not work :(')
+         }
+     })
+
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${3001}/`);
+    console.log(`Server running at http://localhost:${port}/`);
 });
