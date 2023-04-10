@@ -1,7 +1,6 @@
 import poster1 from "../Resources/poster1.jpeg";
 import poster2 from "../Resources/poster2.png";
 import poster3 from "../Resources/poster3.jpeg";
-import poster4 from "../Resources/poster1.jpeg";
 
 export default function Poster() {
   return (
