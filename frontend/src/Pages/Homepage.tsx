@@ -9,7 +9,7 @@ function Home() {
         <div className="flex flex-col justify-between relative font-bold">
             <NavBar />
             <Poster/>
-            <ConcertCards />
+            {/* <ConcertCards /> */}
             <Footer />
         </div>
     );

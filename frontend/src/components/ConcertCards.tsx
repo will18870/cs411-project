@@ -10,18 +10,18 @@ export default function ConcertCards() {
         </div>
 
         <div className="flex flex-wrap justify-center mt-6 ">
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
-          <ConcertCard />
+          <ConcertCard title={"1"} image={"1"} date={"1"} location={"1"} ticketLink={"1"} description={"sadhlahs"} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
+          <ConcertCard title={""} image={""} date={""} location={""} ticketLink={""} description={""} />
         </div>
 
-        <div className="flex justify-center  mb-12">
-          <button className="py-2 px-8 rounded-full bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out">Load More</button>
+        <div className="flex justify-center ">
+          <button className=" mb-8 py-2 px-8 rounded-full bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out">Load More</button>
         </div>
       </div>
     </>
