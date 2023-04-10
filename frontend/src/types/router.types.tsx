@@ -1,5 +1,6 @@
-type routerType = {
+export interface routerType {
     path: string;
     element: React.ReactNode;
     title: string;
-};
+  }
+  

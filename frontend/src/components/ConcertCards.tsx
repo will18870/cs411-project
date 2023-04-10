@@ -3,7 +3,7 @@ import ConcertCard from "./ConcertCard";
 export default function ConcertCards() {
   return (
     <>
-      <div className="flex-1 pl-20  pr-20 pt-10 bg-black">
+      <div className="flex-1 pl-2  pr-20 pt-10 bg-black">
         <div className="flex items-baseline">
           <p className="font-semibold text-2xl  pr-1 text-white">Find concert at</p>
           <p className="text-gray-500 text-2xl">02215</p>

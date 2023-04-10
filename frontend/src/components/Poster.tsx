@@ -1,4 +1,4 @@
-export default function Newnew() {
+export default function Poster() {
    
     return (
       <>
