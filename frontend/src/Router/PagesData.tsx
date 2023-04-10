@@ -4,7 +4,7 @@ import { routerType } from "../types/router.types";
 import Home from "../Pages/Homepage";
 import ConcertPage from "../Pages/ConcertPage";
 import Members from "../Pages/Member";
-// import Login from "../Pages/Login";
+import Login from "../Pages/Login";
 // import Spotify from "../Pages/Spotify";
 
 const pagesData: routerType[] = [
@@ -18,11 +18,11 @@ const pagesData: routerType[] = [
     element: <ConcertPage />,
     title: "Concert",
   },
-  // {
-  //   path: "Login",
-  //   element: <Login />,
-  //   title: "Login",
-  // },
+  {
+    path: "Login",
+    element: <Login />,
+    title: "Login",
+  },
   {
     path: "Members",
     element: <Members />,
