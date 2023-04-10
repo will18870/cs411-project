@@ -2,9 +2,27 @@ import { Link } from 'react-router-dom';
 
 export default function Login() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-200">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="flex items-center justify-end h-screen pr-32 bg-gray-50">
+      <div className="w-1/2 max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold">Login</h2>
+          <Link to="/" className="text-gray-500 hover:text-gray-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 17l-5-5m0 0l5-5m-5 5h12"
+              />
+            </svg>
+          </Link>
+        </div>
         <form>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
@@ -14,7 +32,7 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
-              className="border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="border py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
             />
           </div>
@@ -26,25 +44,18 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
-              className="border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="border py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
             />
           </div>
           <button
             type="submit"
-            className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+            className="bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
           >
             Login
           </button>
         </form>
       </div>
-      <Link
-        to="/"
-        className="mt-4 text-gray-500 hover:text-gray-700"
-      >
-        Back to Home
-      </Link>
     </div>
   )
 }
-

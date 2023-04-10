@@ -4,17 +4,42 @@ import poster3 from "../Resources/poster3.jpeg";
 
 export default function Poster() {
   return (
-    <div className="h-screen bg-slate-500 flex flex-col">
-      <div className="w h-2/5">
-        <img src={poster1} alt="Poster 1" className="w-full h-full object-cover" />
-      </div>
-      <div className="w h-2/5">
-        <img src={poster2} alt="Poster 2" className="w-full h-full object-cover" />
-      </div>
-      <div className="w h-2/5">
-        <img src={poster3} alt="Poster 3" className="w-full h-full object-cover" />
+    <div className="flex flex-col">
+      <div className="h-screen/1.5 bg-purple-500 flex justify-end items-center">
+        <div className="text-white text-4xl font-bold flex-row-reverse">
+          <p className="py-72 pr-72 text-right">
+            Welcome to our website!<br />
+            Placeholder <br />
+            Placeholder<br />
+            Placeholder<br />
+            Placeholder
+          </p>
+        </div>
       </div>
 
+      <div className="h-screen/1.5 bg-lime-300 flex justify-end items-center">
+        <div className="text-white text-4xl font-bold flex-row-reverse">
+          <p className="py-72 pr-72 text-right">
+            Welcome to our website!<br />
+            Placeholder <br />
+            Placeholder<br />
+            Placeholder<br />
+            Placeholder
+          </p>
+        </div>
+      </div>
+
+      <div className="h-screen/1.5 bg-cyan-400 flex justify-end items-center">
+        <div className="text-white text-4xl font-bold flex-row-reverse">
+          <p className="py-72 pr-72 text-right">
+            Welcome to our website!<br />
+            Placeholder <br />
+            Placeholder<br />
+            Placeholder<br />
+            Placeholder
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
