@@ -18,6 +18,6 @@ Make sure you have npm installed
 ```
 cd frontend
 npm install
-npm start
+vite
 ```
 
