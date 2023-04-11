@@ -1,19 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar: React.FC = (): JSX.Element => {
+const HomeNavBar: React.FC = (): JSX.Element => {
   return (
-    <div className="mt-0 transition-all  flex flex-row items-center bg-black">
-      <div className="p-5 bg-blend-color-dodge text-white">Logo</div>
-      <ul className="text-lg font-medium flex mx-8 text-white">
-        <li className="mr-5">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="mr-5">
-          <Link to="/Concert">Concerts</Link>
-        </li>
-      </ul>
-      <ul className="text-lg font-medium flex ml-auto mx-8 text-white">
+    <div className="mt-0 transition-all  flex flex-row items-center bg-white border-solid  border-b-2 border-black">
+      <p className="text-lg font-medium flex left mx-8 text-black py-4">Logo</p>
+      <ul className="text-lg font-medium flex ml-auto mx-8 text-black py-4">
         <li className="mr-5">
           <Link to="/Members">Members</Link>
         </li>
@@ -28,4 +20,4 @@ const NavBar: React.FC = (): JSX.Element => {
   );
 };
 
-export default NavBar;
+export default HomeNavBar;
