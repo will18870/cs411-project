@@ -5,7 +5,8 @@ import Home from "../Pages/Homepage";
 import ConcertPage from "../Pages/ConcertPage";
 import Members from "../Pages/Member";
 import Login from "../Pages/Login";
-// import Spotify from "../Pages/Spotify";
+import Dashboard from "../Pages/Dashboard";
+import Search from "../Pages/Search";
 
 const pagesData: routerType[] = [
   {
@@ -28,11 +29,16 @@ const pagesData: routerType[] = [
     element: <Members />,
     title: "Members",
   },
-//   {
-//     path: "Spotify",
-//     element: <Spotify />,
-//     title: "Spotify",
-//   },
+  {
+    path: "Dashboard",
+    element: <Dashboard />,
+    title: "Dashboard",
+  },
+  {
+    path: "search", // add the search path
+    element: <Search />,
+    title: "Search",
+  },
 ];
 
 const RouterM: React.FC = (): JSX.Element => {
