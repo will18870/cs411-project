@@ -1,4 +1,4 @@
-import { Member } from "../types/Members.types";
+import { Member } from "../../types/Members.types";
 
   const MemberCard: React.FC<Member> = ({ name, title, image, bio }) => {
     return (

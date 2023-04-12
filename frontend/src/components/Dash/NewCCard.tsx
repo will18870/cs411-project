@@ -1,5 +1,5 @@
-import logo from '../Resources/poster1.jpeg';
-import { Concert } from "../types/ConcertCard.types";
+import logo from '../../Resources/poster1.jpeg';
+import { Concert } from "../../types/ConcertCard.types";
 
 const Newcard: React.FC<Concert> = ({ title, image, date, location, ticketLink, description }) => {
   return (

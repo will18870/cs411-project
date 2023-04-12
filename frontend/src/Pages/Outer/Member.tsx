@@ -1,7 +1,7 @@
-import NavBar from "../components/NavBar";
-import MemberCard from "../components/MemberCard";
-import Footer from "../components/Footer";
-import { members } from "../datas/member.data";
+import NavBar from "../../components/Outer/NavBar";
+import MemberCard from "../../components/Outer/MemberCard";
+import Footer from "../../components/Outer/Footer";
+import { members } from "../../datas/member.data";
 
 
 export default function MembersPage() {

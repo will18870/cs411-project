@@ -1,5 +1,5 @@
-import spo from '../Resources/spo-logo.png';
-export default function Poster() {
+import spo from '../../Resources/spo-logo.png';
+export default function Content() {
   return (
 
     <div className="flex flex-col">
@@ -17,7 +17,7 @@ export default function Poster() {
             <button className=" text-sm ml-48 border mt-3 bg-spotify p-2 rounded-xl">Get Start Now</button>
           </div>
         </div>
-        <img src={spo} alt="" className=' w-1/2'/>
+        <img src={spo} alt="" className=' w-1/2' />
       </div>
 
 
@@ -51,17 +51,23 @@ export default function Poster() {
         </div>
       </div>
 
-      <div className=" bg-white h-screen-1/2 flex flex-col items-end text-black text-2xl font-medium  ">
-        <div className="flex flex-col items-start  justify-items-center ">
-          <p className="pt-48 text-left">
-            Stay organized
-          </p>
-          <p className="pt-6 font-normal text-sm text-left w-1/2">
-            Sync your concert schedule with ease using our calendar integration feature.
-            Never miss a beat or double-book again.
-          </p>
+      <div className="flex flex-row-reverse">
+        <div className='w-1/2'>
+          <div className='flex flex-row-reverse'>
+            <div className='pl-36'>
+              <p className="pt-48 text-black text-2xl font-medium ">
+                Stay organized
+              </p>
+              <p className="pt-6 font-normal text-sm w-2/3">
+                Sync your concert schedule with ease using our calendar integration feature.
+                Never miss a beat or double-book again.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+
 
 
       <div className="h-screen/1.5 bg-white flex justify-start items-center">

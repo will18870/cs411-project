@@ -1,5 +1,5 @@
-import { Concerts } from "../datas/concert.data";
-import { Concert } from "../types/ConcertCard.types";
+import { Concerts } from "../../datas/concert.data";
+import { Concert } from "../../types/ConcertCard.types";
 import Newcard from './NewCCard';
 
 

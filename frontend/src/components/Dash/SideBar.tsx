@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 function Sidebar() {
     return (
-
         <div className="fixed top-0 left-0 w-72 h-full bg-black shadow pt-10">
             <nav>
                 <ul className="block py-24 pl-24 text-gray-500 text-2xl font-semibold select-none">

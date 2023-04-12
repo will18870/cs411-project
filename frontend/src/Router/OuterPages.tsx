@@ -1,23 +1,17 @@
 import React from "react";
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { routerType } from "../types/router.types";
-import Home from "../Pages/Homepage";
-import ConcertPage from "../Pages/ConcertPage";
-import Members from "../Pages/Member";
-import Login from "../Pages/Login";
-import Dashboard from "../Pages/Dashboard";
-import Search from "../Pages/Search";
+import Home from "../Pages/Outer/Homepage";
+import Members from "../Pages/Outer/Member";
+import Login from "../Pages/Outer/Login";
+import Dashboard from "../Pages/Dash/Dashboard";
+import Search from "../Pages/Dash/Search";
 
 const pagesData: routerType[] = [
   {
     path: "",
     element: <Home />,
     title: "Home",
-  },
-  {
-    path: "Concert",
-    element: <ConcertPage />,
-    title: "Concert",
   },
   {
     path: "Login",
