@@ -5,7 +5,7 @@ function Dashboard() {
 
   return (
     <div className=" bg-black ">
-      <div className="flex bg-gradient-to-t from-neutral-950 from-60% to-orange-800 ml-72 bottom-0">
+      <div className="flex bg-gradient-to-t from-neutral-50 from-60% to-orange-200 ml-72 bottom-0">
         <div className="fixed">
           <Sidebar />
         </div>
