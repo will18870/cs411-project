@@ -3,7 +3,7 @@ import { Concert } from "../../types/ConcertCard.types";
 
 const Newcard: React.FC<Concert> = ({ title, image, date, location, ticketLink, description }) => {
   return (
-    <div className="w-full lg:w-1/3 2xl:w-2/3 mb-6 lg:pl-6 2xl:pl-12 sm:pl-6 ">
+    <div className="w-full lg:w-1/3 2xl:w-2/3 mb-6  pr-6 ">
       <div className="shadow-lg rounded-lg overflow-hidden">
         <img className="2xl:w-full 2xl:h-48   object-cover" src={logo} alt={title} />
         <div className="p-4 bg-white bg-opacity-40 hover:opacity-70 hover:rounded-b-lg">

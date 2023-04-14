@@ -6,7 +6,7 @@ import Newcard from './NewCCard';
 export default function ConcertCards() {
   return (
     <>
-      <div className="flex flex-row pt-8  pr-12 truncate">
+      <div className="flex flex-row pt-8  truncate">
 
         {Concerts.map((concert: Concert) => (
           <Newcard
