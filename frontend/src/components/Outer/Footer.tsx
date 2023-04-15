@@ -1,55 +1,65 @@
 export default function Footer() {
   return (
     <>
-      <footer className="pt-8 pb-8 bg-black flex justify-between items-center ">
-        <p className="pl-10 text-sm text-gray-100">&copy; 2023 CS411 Class Project - Boston University</p>
-        <div className="flex px-10 ">
-          <div className="flex flex-col px-10">
-            <p className="font-medium text-gray-200 mb-2">Pages</p>
-            <ul className="list-none font-thin">
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Home</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Concert</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Showcase</a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col px-10">
-            <p className="font-medium text-gray-200 mb-2">APIs</p>
-            <ul className="list-none font-thin">
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Google</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Spotify</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">SongKick</a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col px-10">
-            <p className="font-medium text-gray-200 mb-2">Members</p>
-            <ul className="list-none font-thin">
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Albert</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Hangqi</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">Maria</a>
-              </li>
-              <li>
-                <a href="/" className="text-gray-100 hover:text-gray-900">William</a>
-              </li>
-            </ul>
+      <footer className="pt-8 flex flex-row text-gray-800 mb-24 w-screen ">
+
+        <p className="pl-32 w-1/3 font-medium text-2xl ">&copy; 2023 CS411 Class Project - Boston University</p>
+        <div className="w-screen">
+          <div className="flex justify-evenly border-s-violet-50 font-medium text-2xl [&>a]:text-xl" >
+            <div className="flex flex-col">
+              <p className=" mb-4">Pages</p>
+              <ul className="list-none ">
+                <li>
+                  <a href="/" className=" ">Home</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">Concert</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">Showcase</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col">
+              <p className="mb-4">APIs</p>
+              <ul className="list-none ">
+                <li>
+                  <a href="/" className=" ">Google</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">Spotify</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">SongKick</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col">
+              <p className="mb-4">Members</p>
+              <ul className="list-none">
+                <li>
+                  <a href="/" className=" ">Albert</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">Hangqi</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">Maria</a>
+                </li>
+                <li>
+                  <a href="/" className=" ">William</a>
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
+
+
+
+
       </footer>
     </>
   );

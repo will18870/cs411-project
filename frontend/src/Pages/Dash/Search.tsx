@@ -4,7 +4,7 @@ import GenreCard from '../../components/Dash/GenreCard';
 
 function SearchDash() {
     return (
-        <div className="  max-h-max ml-72 bg-neutral-950">
+        <div className="max-h-max ml-72 bg-neutral-950 w-screen">
             <div className="flex felx-row  ">
                 <div className="fixed">
                     <Sidebar />
@@ -15,16 +15,16 @@ function SearchDash() {
                             <input
                                 type="text"
                                 placeholder="Search for songs, artists, or albums"
-                                className="bg-white text-gray-800 rounded-full py-5 pl-4 w-1/3 mb-4"
+                                className="bg-white text-gray-800 rounded-full py-3 pl-4 w-1/3 mb-4"
                             />
                         </div>
 
 
-                        <div className=" h-screen w-screen mt-48 bg-neutral-950">
+                        <div className=" h-screen w-screen mt-48 bg-neutral-300">
                             <div className=" mt-8 h-screen">
                                 <p className="font-bold text-4xl text-white ml-8">Explore All </p>
-                                <div className="bg-neutral-950">
-                                    <GenreCardList/>
+                                <div className="bg-neutral-300">
+                                    <GenreCardList />
                                 </div>
 
 

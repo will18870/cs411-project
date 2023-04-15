@@ -6,6 +6,7 @@ import Members from "../Pages/Outer/Member";
 import Login from "../Pages/Outer/Login";
 import Dashboard from "../Pages/Dash/Dashboard";
 import Search from "../Pages/Dash/Search";
+import CategoryPage from "../Pages/Dash/CategoryPage";
 
 const pagesData: routerType[] = [
   {
@@ -32,6 +33,11 @@ const pagesData: routerType[] = [
     path: "search", // add the search path
     element: <Search />,
     title: "Search",
+  },
+  {
+    path: "CategoryPage", 
+    element: <CategoryPage />,
+    title: "CategoryPage",
   },
 ];
 

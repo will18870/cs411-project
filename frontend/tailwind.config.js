@@ -8,17 +8,20 @@ export default {
     extend: {
       colors: {
         'spotify': '#1ED760',
+      }, keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" }
+        }
       },
+      animation: {
+        wiggle: "wiggle 200ms ease-in-out"
+      }
     },
     screens: {
       'tablet': '640px',
-      // => @media (min-width: 640px) { ... }
-
       'laptop': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       'desktop': '1280px',
-      // => @media (min-width: 1280px) { ... }
       'mm':'0px'
     },
   },

@@ -11,7 +11,7 @@ function Sidebar() {
                         <Link to="/Search" className="hover:text-white hover:shadow-md">Search</Link>
                     </li>
                     <li>
-                        <Link to="/" className="hover:text-white hover:shadow-md">Favourite</Link>
+                        <Link to="/CategoryPage" className="hover:text-white hover:shadow-md">Favourite</Link>
                     </li>
                 </ul>
             </nav>
