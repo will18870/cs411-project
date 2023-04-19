@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { routerType } from "../types/router.types";
+import { routerType } from "../Router/Types";
 import Home from "../Pages/Outer/Homepage";
 import Members from "../Pages/Outer/Member";
 import Login from "../Pages/Outer/Login";
 import Dashboard from "../Pages/Dash/Dashboard";
-import Search from "../Pages/Dash/Search";
+import SearchDash from "../Pages/Dash/SearchDash";
 import CategoryPage from "../Pages/Dash/CategoryPage";
 
 const pagesData: routerType[] = [
@@ -30,12 +30,12 @@ const pagesData: routerType[] = [
     title: "Dashboard",
   },
   {
-    path: "search", // add the search path
-    element: <Search />,
-    title: "Search",
+    path: "SearchDash", 
+    element: <SearchDash />,
+    title: "SearchDash",
   },
   {
-    path: "CategoryPage", 
+    path: "CategoryPage/:genre", 
     element: <CategoryPage />,
     title: "CategoryPage",
   },

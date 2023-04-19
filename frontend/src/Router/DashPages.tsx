@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { routerType } from "../types/router.types";
 import Dashboard from "../Pages/Dash/Dashboard";
-import SearchDash from "../Pages/Dash/Search";
+import SearchDash from "../Pages/Dash/SearchDash";
 
 const pagesData: routerType[] = [
   {

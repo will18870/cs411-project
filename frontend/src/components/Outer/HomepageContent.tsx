@@ -83,22 +83,6 @@ export default function Content() {
         </div>
       </div>
 
-
-      {/* <div className=" bg-[#1ED760] flex justify-center items-center">
-        <div className="">
-          <p className=" py-16 px-48 font-normal text-3xl text-left leading-loose tracking-wide">
-            By connecting users with their local music scene, our platform brings together
-            live music lovers, artists, and event organizers towards a shared goal:
-            to promote and celebrate the love of music. With our personalized
-            recommendations and convenient ticket purchasing, we've made it easier
-            for users to discover and attend the perfect concerts. And by offering
-            a space for user reviews and artist profiles, we've created a community
-            that fosters the growth of local music scenes. Join us and experience
-            the power of shared passion for live music.
-          </p>
-        </div>
-      </div> */}
-
     </div>
   );
 }

@@ -1,14 +1,13 @@
 import { Concerts } from "../../datas/concert.data";
-import { Concert } from "../../types/ConcertCard.types";
+import { ConcertType } from "../../Router/Types";
 import Newcard from './NewCCard';
 
-
-export default function ConcertCards() {
+const ConcertCards = () => {
   return (
     <>
       <div className="flex flex-row pt-8  truncate">
 
-        {Concerts.map((concert: Concert) => (
+        {Concerts.map((concert: ConcertType) => (
           <Newcard
             key={concert.title}
             title={concert.title}
@@ -23,3 +22,5 @@ export default function ConcertCards() {
     </>
   );
 }
+
+export default ConcertCards;

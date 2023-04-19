@@ -8,7 +8,7 @@ function Sidebar() {
                         <Link to="/" className="pl-12 ">Home</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/Search" className="pl-12 ">Search</Link>
+                        <Link to="/SearchDash" className="pl-12 ">Search</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
                         <Link to="/CategoryPage" className="pl-12 ">Favourite</Link>
