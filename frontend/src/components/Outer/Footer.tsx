@@ -5,10 +5,10 @@ export default function Footer() {
 
         <p className="pl-32 w-1/3 font-medium text-2xl ">&copy; 2023 CS411 Class Project - Boston University</p>
         <div className="w-screen">
-          <div className="flex justify-evenly border-s-violet-50 font-medium text-2xl [&>a]:text-xl" >
-            <div className="flex flex-col">
-              <p className=" mb-4">Pages</p>
-              <ul className="list-none ">
+          <div className="flex justify-evenly border-s-violet-50 font-medium text-2xl " >
+            <div className="flex flex-col ">
+              <p className=" mb-6">Pages</p>
+              <ul className="list-none text-xl pb-3">
                 <li>
                   <a href="/" className=" ">Home</a>
                 </li>
@@ -22,8 +22,8 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <p className="mb-4">APIs</p>
-              <ul className="list-none ">
+              <p className="mb-6">APIs</p>
+              <ul className="list-none text-xl pb-3">
                 <li>
                   <a href="/" className=" ">Google</a>
                 </li>
@@ -37,8 +37,8 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <p className="mb-4">Members</p>
-              <ul className="list-none">
+              <p className="mb-6">Members</p>
+              <ul className="list-none text-xl pb-3">
                 <li>
                   <a href="/" className=" ">Albert</a>
                 </li>

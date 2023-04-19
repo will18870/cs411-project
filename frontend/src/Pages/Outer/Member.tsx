@@ -8,10 +8,10 @@ export default function MembersPage() {
     return (
         <>
             <NavBar />
-            <div className="bg-black">
-                <div className="max-w-7xl py-12 px-4 sm:px-20 lg:px-30">
-                    <h1 className="text-3xl font-bold mb-8 text-white">Meet Our Members</h1>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="bg-white">
+                <div className="mx-48 mt-24">
+                    <h1 className="text-4xl font-semibold mb-16 text-black">Meet Our Members</h1>
+                    <div className="flex flex-wrap flex-row ">
                         {members.map((member) => (
                             <MemberCard
                                 key={member.name}

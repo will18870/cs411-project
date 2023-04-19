@@ -30,7 +30,7 @@ export default function Content() {
           <p className="pt-6  font-normal text-xl text-center w-1/3 mx-auto">
             From jazz bars to rock arenas, our platform connects you with the hottest live
             music events in your city. Discover new artists and never miss a beat with our
-            user-friendly interface. With our help, you can experience the local music scene
+            friendly interface. With our help, you can experience the local music scene
             like never before
           </p>
         </div>

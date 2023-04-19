@@ -2,7 +2,7 @@ import { Member } from "../../types/Members.types";
 
   const MemberCard: React.FC<Member> = ({ name, title, image, bio }) => {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-2/5 mr-32 mb-16 border-solid border-gray-300 border-2">
         <div className="flex items-center mb-4">
           <img
             src={image}
