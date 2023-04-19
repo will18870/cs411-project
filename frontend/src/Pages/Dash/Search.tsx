@@ -12,13 +12,12 @@ function SearchDash() {
                 <div>
                     <div className="">
                         <Topbar/>
-                            <div className="h-screen w-screen bg-neutral-50">
+                            <div className="h-screen w-screen">
                                 <p className="font-bold text-4xl text-black ml-8 mt-16">Explore All </p>
                                 <div className="">
                                     <GenreCardList />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
