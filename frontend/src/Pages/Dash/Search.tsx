@@ -4,24 +4,15 @@ import Topbar from '../../components/Dash/Topbar';
 
 function SearchDash() {
     return (
-<<<<<<< HEAD
-        <div className="max-h-max ml-72 w-screen">
-=======
+
         <div className="  max-h-max ml-72 bg-neutral-50">
->>>>>>> 2cf548e243cb1ea12b9be0dccd1ef3da3bf2dc91
+
             <div className="flex felx-row  ">
                 <div className="fixed">
                     <Sidebar />
                 </div>
                 <div>
                     <div className="">
-<<<<<<< HEAD
-                        <Topbar/>
-                            <div className="h-screen w-screen">
-                                <p className="font-bold text-4xl text-black ml-8 mt-16">Explore All </p>
-                                <div className="">
-                                    <GenreCardList />
-=======
                         <div className="bg-white w-screen top-0 pt-4 pl-24 fixed">
                             <input
                                 type="text"
@@ -37,9 +28,6 @@ function SearchDash() {
                                 <div className="bg-neutral-50">
                                     <GenreCardList/>
                                 </div>
-
-
->>>>>>> 2cf548e243cb1ea12b9be0dccd1ef3da3bf2dc91
                             </div>
                         </div>
                     </div>
