@@ -1,17 +1,17 @@
-export interface Member {
+interface MemberType {
   name: string;
   title: string;
   image: string;
   bio: string;
 }
 
-export interface routerType {
+interface routerType {
   path: string;
   element: React.ReactNode;
   title: string;
 }
 
-export interface ConcertType {
+interface ConcertType {
   id: number;
   title: string;
   image: string;
@@ -21,9 +21,11 @@ export interface ConcertType {
   description: string;
   genre: string
 }
-export interface GenreCardProps {
+interface GenreCardProps {
   title: string;
   image: string;
   description: string;
   color: string;
 }
+
+export type { MemberType, routerType, ConcertType, GenreCardProps };

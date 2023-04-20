@@ -1,8 +1,9 @@
-import Sidebar from "../../components/Dash/SideBar";
-import Topbar from '../../components/Dash/Topbar';
+import Sidebar from "../../components/SideBar";
+import DashTopbar from '../../components/Topbar';
 import { Genre } from '../../datas/Genre.data';
-import { GenreCardProps } from "../../Router/Types";
+import { GenreCardProps } from "../../Router/Types.types";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Footer from '../../components/Footer';
 import CategoryPage from "../Dash/CategoryPage";
 
 const GenreCard: React.FC<GenreCardProps> = ({ title, image, description, color }) => {
@@ -26,7 +27,7 @@ export default function SearchDash() {
                     <div className="ml-72 bg-neutral-100">
                         <div className="">
                             <div className="pb-8">
-                                <Topbar />
+                                <DashTopbar />
                             </div>
 
                             <div className="">
@@ -64,6 +65,7 @@ export default function SearchDash() {
                                 </div>
 
                             </div>
+                            <Footer />
                         </div>
                     </div>
                 </div>

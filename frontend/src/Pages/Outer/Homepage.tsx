@@ -1,8 +1,8 @@
 import React from "react";
-import HomeNavBar from "../../components/Outer/NavBar";
-import Footer from "../../components/Outer/Footer"
-import ConcertCards from "../../components/Dash/ConcertCards";
-import Poster from "../../components/Outer/HomepageContent";
+import HomeNavBar from "../../components/NavBar";
+import Footer from "../../components/Footer"
+import ConcertCards from "../../components/ConcertCards";
+import Poster from "../../components/HomepageContent";
 
 function Home() {
     return (

@@ -1,6 +1,6 @@
-import NavBar from "../../components/Outer/NavBar";
-import MemberCard from "../../components/Outer/MemberCard";
-import Footer from "../../components/Outer/Footer";
+import NavBar from "../../components/NavBar";
+import MemberCard from "../../components/MemberCard";
+import Footer from "../../components/Footer";
 import { members } from "../../datas/member.data";
 
 

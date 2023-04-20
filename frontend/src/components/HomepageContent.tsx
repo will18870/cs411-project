@@ -1,4 +1,4 @@
-import spo from '../../Resources/tst1.png';
+import spo from '../Resources/tst1.png';
 export default function Content() {
   return (
 

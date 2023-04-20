@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { GenreCardProps } from "../../types/GenreCard.types";
+import { GenreCardProps } from "../../Router/Types.types";
 import {Genre} from "../../datas/Genre.data";
 
 const CategoryPage: React.FC = () => {

@@ -1,12 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { routerType } from "../Router/Types";
+import { routerType } from "./Types.types";
 import Home from "../Pages/Outer/Homepage";
 import Members from "../Pages/Outer/Member";
 import Login from "../Pages/Outer/Login";
 import Dashboard from "../Pages/Dash/Dashboard";
 import SearchDash from "../Pages/Dash/SearchDash";
-import CategoryPage from "../Pages/Dash/CategoryPage";
+import SingleGenre from "../components/SingleGenre";
+
 
 const pagesData: routerType[] = [
   {
@@ -34,10 +35,11 @@ const pagesData: routerType[] = [
     element: <SearchDash />,
     title: "SearchDash",
   },
+ 
   {
-    path: "CategoryPage/:genre", 
-    element: <CategoryPage />,
-    title: "CategoryPage",
+    path: "SingleGenre", 
+    element: <SingleGenre title="a" image="a" description="a" color="a"/>,
+    title: "SingleGenre",
   },
 ];
 
