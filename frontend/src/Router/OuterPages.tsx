@@ -7,6 +7,7 @@ import Login from "../Pages/Outer/Login";
 import Dashboard from "../Pages/Dash/Dashboard";
 import SearchDash from "../Pages/Dash/SearchDash";
 import SingleGenre from "../components/SingleGenre";
+import SingleConcert from "../Pages/Dash/SingleConcert";
 
 
 const pagesData: routerType[] = [
@@ -31,14 +32,19 @@ const pagesData: routerType[] = [
     title: "Dashboard",
   },
   {
-    path: "SearchDash", 
+    path: "SearchDash",
     element: <SearchDash />,
     title: "SearchDash",
   },
- 
   {
-    path: "SingleGenre", 
-    element: <SingleGenre title="a" image="a" description="a" color="a"/>,
+    path: "SingleConcert",
+    element: <SingleConcert />,
+    title: "SingleConcert",
+  },
+
+  {
+    path: "SingleGenre",
+    element: <SingleGenre title="a" image="a" description="a" color="a" />,
     title: "SingleGenre",
   },
 ];
