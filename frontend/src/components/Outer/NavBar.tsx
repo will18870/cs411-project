@@ -7,16 +7,16 @@ const HomeNavBar: React.FC = (): JSX.Element => {
       <p className="text-lg font-medium flex left mx-8 text-black py-4">Logo</p>
       <ul className="text-lg font-medium flex ml-auto mx-8 text-black py-4">
       <li className="mr-5">
-          <Link to="/Dashboard">Dashboard</Link>
+          <Link to="/Dashboard" reloadDocument>Dashboard</Link>
         </li>
         <li className="mr-5">
-          <Link to="/Members">Members</Link>
+          <Link to="/Members" reloadDocument>Members</Link>
         </li>
         <li className="mr-5">
-          <Link to="/Spotify">Spotify</Link>
+          <Link to="/Spotify" reloadDocument>Spotify</Link>
         </li>
         <li>
-          <Link to="/Login">Login</Link>
+          <Link to="/Login" reloadDocument>Login</Link>
         </li>
       </ul>
     </div>
