@@ -2,11 +2,17 @@ import img from '../../Resources/poster1.jpeg';
 import Footer from '../../components/Footer';
 import Sidebar from '../../components/SideBar';
 import ConcertCards from '../../components/ConcertCards';
+// import Button from '@mui/material/Button';
+// import Button from '@mui/joy/Button'
+import type { FC } from 'react';
+import { Button } from 'antd';
+import 'antd/dist/reset.css';
 
 export default function SingleConcert() {
     return (
         <div className="h-max">
             <Sidebar />
+
             <div className="ml-80 ">
                 <div>
                     <div className="flex flex-col md:flex-row pt-24 select-none bg-gradient-to-tr">
@@ -29,8 +35,11 @@ export default function SingleConcert() {
                                 Wiser Than Me with Julia Louis Dreyfus
                             </h1>
                             <h1 className="text-2xl font-extrabold">Lemonada Media</h1>
+                            {/* <Button variant="contained">Hello World</Button> */}
+                            <Button type="primary" className='w-1/4'>Button</Button>
                         </div>
                     </div>
+                    
 
                     <button className="mt-4 border-2 border-black rounded-xl p-3 font-extrabold hover:bg-spotify hover:text-white">FOLLOW</button>
                     <div className='flex flex-row'>

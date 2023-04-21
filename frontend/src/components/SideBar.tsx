@@ -20,6 +20,9 @@ function Sidebar() {
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
                         <Link to="/SingleConcert" className="pl-12 ">SingleConcert</Link>
                     </li>
+                    <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
+                        <Link to="/ComTest" className="pl-12 ">ComTest</Link>
+                    </li>
                 </ul>
             </nav>
         </div>

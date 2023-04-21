@@ -8,7 +8,7 @@ import Dashboard from "../Pages/Dash/Dashboard";
 import SearchDash from "../Pages/Dash/SearchDash";
 import SingleGenre from "../components/SingleGenre";
 import SingleConcert from "../Pages/Dash/SingleConcert";
-
+import ComTest from "../Pages/Dash/ComTest";
 
 const pagesData: routerType[] = [
   {
@@ -41,6 +41,12 @@ const pagesData: routerType[] = [
     element: <SingleConcert />,
     title: "SingleConcert",
   },
+  {
+    path: "ComTest",
+    element: <ComTest />,
+    title: "ComTest",
+  },
+
 
   {
     path: "SingleGenre",
