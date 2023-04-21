@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import request from "request";
 const app = express();
 
 import assetsRouter from "./server/assets-router.js";
@@ -8,6 +9,7 @@ app.use("/src", assetsRouter);
 
 import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const tmKey = '0txRTCElnYysjp6wGw85pTQwcXUPIXfv';
 
 
 app.use("/", express.static(path.join(__dirname)));
@@ -20,6 +22,29 @@ app.get("/api/v1", (req, res) => {
 
 app.get("/Dashboard", (_req, res) => {
     console.log("at dash!")
+
+    request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=' + tmKey, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            let info = JSON.parse(body)
+            console.log(info)
+            if (info.page.totalElements == 0)
+            {
+                res.send('no concerts at this zip code :(')
+                return
+            }
+            let eventList = info._embedded.events
+            //console.log(info)
+            //res.send(info._embedded.events)
+
+            let result = ""
+            for(let i = 0; i < eventList.length; i++) {
+                result += eventList[i].name + "\n";
+            }
+
+            console.log(result)
+            console.log(eventList[0])
+        }
+    })
 
     fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
         if (err) {
