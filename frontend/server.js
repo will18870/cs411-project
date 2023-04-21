@@ -66,9 +66,15 @@ app.get("/Dashboard", (_req, res) => {
                 }
             })
 
-            // console.log(result)
-            // console.log(eventList[0])
-            // console.log(eventList[0]._embedded.venues[0])
+            console.log(result)
+            console.log(eventList[0])
+            console.log(eventList[0]._embedded.venues[0])
+            console.log(eventList[0].classifications[0].genre)
+            console.log(eventList[19].classifications[0].genre)
+            console.log(eventList[0].classifications[0].segment)
+            console.log(eventList[19].classifications[0].segment)
+            console.log(eventList[0].classifications[0].subGenre)
+            console.log(eventList[19].classifications[0].subGenre)
         }
     })
 
