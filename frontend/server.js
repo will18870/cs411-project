@@ -2,10 +2,13 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import request from "request";
+import bodyParser from "body-parser"
 const app = express();
 
 import assetsRouter from "./server/assets-router.js";
 app.use("/src", assetsRouter);
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -29,20 +32,43 @@ app.get("/Dashboard", (_req, res) => {
             console.log(info)
             if (info.page.totalElements == 0)
             {
-                res.send('no concerts at this zip code :(')
                 return
             }
             let eventList = info._embedded.events
             //console.log(info)
             //res.send(info._embedded.events)
 
-            let result = ""
+            let result = "export const Concerts = [ \n"
             for(let i = 0; i < eventList.length; i++) {
-                result += eventList[i].name + "\n";
+
+                let event = eventList[i]
+                let element = {
+                    id: i+1,
+                    title: event.name,
+                    image: event.images[0].url,
+                    date: event.dates.start.localDate,
+                    location: event._embedded.venues[0].city.name,
+                    ticketLink: event.url,
+                    description: "testing",
+                    genre: "testing",
+                }
+
+                result += JSON.stringify(element) + ",\n";
             }
 
-            console.log(result)
-            console.log(eventList[0])
+            result += "];"
+
+            let filePath = __dirname + '/src/datas/concert1.data.tsx'
+            fs.writeFile(filePath, result, function(err) {
+                if (err) {
+                    console.log("err")
+                    throw err
+                }
+            })
+
+            // console.log(result)
+            // console.log(eventList[0])
+            // console.log(eventList[0]._embedded.venues[0])
         }
     })
 

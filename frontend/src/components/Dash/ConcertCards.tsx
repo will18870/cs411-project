@@ -1,4 +1,4 @@
-import { Concerts } from "../../datas/concert.data";
+import { Concerts } from "../../datas/concert1.data";
 import { Concert } from "../../types/ConcertCard.types";
 import Newcard from './NewCCard';
 
