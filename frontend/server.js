@@ -23,7 +23,7 @@ app.get("/api/v1", (req, res) => {
     });
 });
 
-app.get("/Dashboard", (_req, res) => {
+app.get("/Dash", (_req, res) => {
     console.log("at dash!")
 
     request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=' + tmKey, function (error, response, body) {
