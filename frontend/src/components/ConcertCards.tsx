@@ -6,7 +6,6 @@ const ConcertCards = () => {
   return (
     <>
       <div className="flex flex-row pt-8  truncate">
-
         {Concerts.map((concert: ConcertType) => (
           <ConcertCard
             key={concert.title}

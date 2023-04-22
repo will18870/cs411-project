@@ -5,10 +5,7 @@ import Home from "../Pages/Outer/Homepage";
 import Members from "../Pages/Outer/Member";
 import Login from "../Pages/Outer/Login";
 import Dashboard from "../Pages/Dash/Dashboard";
-import SearchDash from "../Pages/Dash/SearchDash";
-import SingleGenre from "../components/SingleGenre";
-import SingleConcert from "../Pages/Dash/SingleConcert";
-import ComTest from "../Pages/Dash/ComTest";
+
 
 const pagesData: routerType[] = [
   {
@@ -27,32 +24,10 @@ const pagesData: routerType[] = [
     title: "Members",
   },
   {
-    path: "Dashboard",
+    path: "Dash/*",
     element: <Dashboard />,
-    title: "Dashboard",
-  },
-  {
-    path: "SearchDash",
-    element: <SearchDash />,
-    title: "SearchDash",
-  },
-  {
-    path: "SingleConcert",
-    element: <SingleConcert />,
-    title: "SingleConcert",
-  },
-  {
-    path: "ComTest",
-    element: <ComTest />,
-    title: "ComTest",
-  },
-
-
-  {
-    path: "SingleGenre",
-    element: <SingleGenre title="a" image="a" description="a" color="a" />,
-    title: "SingleGenre",
-  },
+    title: "Dash",
+  }
 ];
 
 const RouterM: React.FC = (): JSX.Element => {

@@ -1,6 +1,6 @@
-import Sidebar from "../components/SideBar";
-import { GenreCardProps } from "../Router/Types.types";
-import Footer from '../components/Footer';
+import Sidebar from "../SideBar";
+import { GenreCardProps } from "../../Router/Types.types";
+import Footer from '../Footer';
 import ConcertCards from './ConcertCards';
 
 interface SingleGenreProps extends GenreCardProps { }

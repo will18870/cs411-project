@@ -19,7 +19,6 @@ function Home() {
         <div className="flex flex-col justify-between relative font-bold">
             <HomeNavBar />
 
-
             <div className="flex flex-col">
 
                 <div className='flex flex-row'>
@@ -37,8 +36,6 @@ function Home() {
                     </div>
                     <img src={spo} alt="" className='w-1/2' />
                 </div>
-
-
 
                 <div className=" bg-white mb-4">
                     <div className="text-black justify-center align-middle">
@@ -99,9 +96,6 @@ function Home() {
                     </div>
                 </div>
 
-
-
-
                 <div className="h-screen/1.5 bg-white flex justify-start items-center mb-96 t-64">
                     <div className="text-black text-5xl font-medium flex-row ">
                         <p className="pt-48 text-left w-1/2 pl-36  ">
@@ -114,10 +108,8 @@ function Home() {
                         </p>
                     </div>
                 </div>
-
+                
             </div>
-
-
             <Footer />
         </div>
     );

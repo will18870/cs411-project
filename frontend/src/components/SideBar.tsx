@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SingleConcert from '../Pages/Dash/SingleConcert';
 function Sidebar() {
     return (
         <div className="fixed w-72 h-full bg-gray-100 shadow pt-10">
@@ -9,19 +8,19 @@ function Sidebar() {
                         <Link to="/" className="pl-12 ">Home</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/SearchDash" className="pl-12 ">Search</Link>
+                        <Link to="Dash/SearchDash" className="pl-12 ">Search</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/CategoryPage" className="pl-12 ">Favourite</Link>
+                        <Link to="Dash/CategoryPage" className="pl-12 ">Favourite</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/SingleGenre" className="pl-12 ">SingleGenre</Link>
+                        <Link to="Dash/SingleGenre" className="pl-12 ">SingleGenre</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/SingleConcert" className="pl-12 ">SingleConcert</Link>
+                        <Link to="Dash/SingleConcert" className="pl-12 ">SingleConcert</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="/ComTest" className="pl-12 ">ComTest</Link>
+                        <Link to="Dash/ComTest" className="pl-12 ">ComTest</Link>
                     </li>
                 </ul>
             </nav>
