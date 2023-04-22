@@ -1,4 +1,4 @@
-import { Concerts } from "../datas/concert.data";
+import { Concerts } from "../datas/concert1.data";
 import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
 

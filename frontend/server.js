@@ -26,6 +26,42 @@ app.get("/api/v1", (req, res) => {
 app.get("/Dash", (_req, res) => {
     console.log("at dash!")
 
+    makeData()
+
+    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        let content = data.toString()
+        res.send(content)
+    })
+})
+
+app.get("/Members", (_req, res) => {
+    console.log("at members!")
+
+    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        let content = data.toString()
+        res.send(content)
+    })
+})
+app.get("/*", (_req, res) => {
+
+    makeData()
+
+    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        let content = data.toString().replace("PAGE_PARAMETER", "http://localhost:3000/src/main.tsx");
+        res.send(content)
+    })
+})
+
+function makeData() {
     request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=' + tmKey, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             let info = JSON.parse(body)
@@ -39,9 +75,20 @@ app.get("/Dash", (_req, res) => {
             //res.send(info._embedded.events)
 
             let result = "export const Concerts = [ \n"
+            let prev = ""
+            let count = 0
             for(let i = 0; i < eventList.length; i++) {
 
                 let event = eventList[i]
+                if (event.name === prev) {
+                    continue;
+                }
+                if (count > 4) {
+                    break;
+                }
+
+                prev = event.name
+                count++
                 let element = {
                     id: i+1,
                     title: event.name,
@@ -77,37 +124,7 @@ app.get("/Dash", (_req, res) => {
             console.log(eventList[19].classifications[0].subGenre)
         }
     })
-
-    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
-        if (err) {
-            throw err;
-        }
-        let content = data.toString()
-        res.send(content)
-    })
-})
-
-app.get("/Members", (_req, res) => {
-    console.log("at members!")
-
-    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
-        if (err) {
-            throw err;
-        }
-        let content = data.toString()
-        res.send(content)
-    })
-})
-app.get("/*", (_req, res) => {
-
-    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
-        if (err) {
-            throw err;
-        }
-        let content = data.toString().replace("PAGE_PARAMETER", "http://localhost:3000/src/main.tsx");
-        res.send(content)
-    })
-})
+}
 
 const { PORT = 5000 } = process.env;
 app.listen(PORT, () => {

@@ -7,7 +7,7 @@ const HomeNavBar: React.FC = (): JSX.Element => {
       <p className="text-lg font-medium flex left mx-8 text-black py-4">Logo</p>
       <ul className="text-lg font-medium flex ml-auto mx-8 text-black py-4">
       <li className="mr-5">
-          <Link to="/Dash">Dashboard</Link>
+          <Link to="/Dash" reloadDocument>Dashboard</Link>
         </li>
         <li className="mr-5">
           <Link to="/Members" reloadDocument>Members</Link>
