@@ -1,23 +1,13 @@
-import Sidebar from "../../components/Dash/SideBar";
-import MainBoard from "../../components/Dash/MainBoard";
-import Topbar from '../../components/Dash/Topbar';
+import Sidebar from "../../components/SideBar";
+import Dash from '../../Router/DashPages';
 
-export default function Dashboard() {
+function Dashboard() {
   return (
-    <div className=" bg-white ">
-      <div className="flex ml-60 bottom-0">
-        <div className="fixed">
-          <Sidebar />
-        </div>
-        <div className="">
-          <Topbar />
-        </div>
-        {/* MainBoard */}
+    <div className="h-max">
+      <Sidebar />
+      <div>
+        <Dash />
       </div>
-      <div className="z-30 ml-72 mt-24">
-        <p className='text-black text-5xl font-bold'>We Recommend for you</p>
-
-      </div>
-    </div>
+    </div >
   );
 }

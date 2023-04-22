@@ -1,6 +1,6 @@
-export default function Topbar() {
+export default function DashTopbar() {
     return (
-        <div className=" top-0 h-12 bg-gray-50 w-screen">
+        <div className=" top-0 h-12 bg-gray-50 ">
             <div className=" bg-slate-200 w-screen top-0 pt-4 pl-24 fixed border-4 ">
                 <input
                     type="text"

@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
     <>
-      <footer className="pt-8 flex flex-row text-gray-800 mb-24 w-screen ">
-
+    <div className="flex flex-col-reverse">
+      <footer className="pt-24 flex flex-row text-gray-800 mb-16">
         <p className="pl-32 w-1/3 font-medium text-2xl ">&copy; 2023 CS411 Class Project - Boston University</p>
         <div className="w-screen">
           <div className="flex justify-evenly border-s-violet-50 font-medium text-2xl " >
@@ -61,6 +61,7 @@ export default function Footer() {
 
 
       </footer>
+      </div>
     </>
   );
 }

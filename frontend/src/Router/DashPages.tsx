@@ -1,19 +1,32 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { routerType } from "../types/router.types";
-import Dashboard from "../Pages/Dash/Dashboard";
-import SearchDash from "../Pages/Dash/Search";
+import { routerType } from "../Router/Types.types";
+import Recommend from "../components/Recommend";
+import SearchDash from "../Pages/Dash/SearchDash";
+import SingleConcert from "../Pages/Dash/SingleConcert";
+import Favourite from "../Pages/Dash/Favourite";
+
 
 const pagesData: routerType[] = [
   {
-    path: "/Dashboard", 
-    element: <Dashboard />,
-    title: "Dashboard",
+    path: "/", 
+    element: <Recommend />,
+    title: "Recommend",
   },
   {
-    path: "/searchDash", 
+    path: "/SearchDash", 
     element: <SearchDash />,
-    title: "SearchDash",
+    title: "Dash-SearchDash",
+  },
+  {
+    path: "/SingleConcert", 
+    element: <SingleConcert />,
+    title: "SingleConcert",
+  },
+  {
+    path: "/Favourite", 
+    element: <Favourite />,
+    title: "Favourite",
   }
 ];
 
@@ -22,7 +35,7 @@ const Dash: React.FC = (): JSX.Element => {
     <Route key={path} path={`/${path}`} element={element} />
   ));
 
-  return <Routes>{pageRoutes}</Routes>;
+  return (<Routes>{pageRoutes}</Routes> );
 };
 
 export default Dash;

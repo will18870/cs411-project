@@ -16,7 +16,14 @@ export default {
       },
       animation: {
         wiggle: "wiggle 200ms ease-in-out"
-      }
+      },
+      screens: {
+        'sm': '576px',
+        'md': '960px',
+        'lg': '1440px',
+        'xl': '1920px',
+        '2xl': '2560px',
+      },
     },
     screens: {
       'tablet': '640px',
