@@ -8,19 +8,16 @@ function Sidebar() {
                         <Link to="/" className="pl-12 ">Home</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="Dash/SearchDash" className="pl-12 ">Search</Link>
+                        <Link to="./SearchDash" className="pl-12 ">Search</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="Dash/CategoryPage" className="pl-12 ">Favourite</Link>
+                        <Link to="~/CategoryPage" className="pl-12 ">Favourite</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="Dash/SingleGenre" className="pl-12 ">SingleGenre</Link>
+                        <Link to="~/SingleGenre" className="pl-12 ">SingleGenre</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="Dash/SingleConcert" className="pl-12 ">SingleConcert</Link>
-                    </li>
-                    <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="Dash/ComTest" className="pl-12 ">ComTest</Link>
+                        <Link to="./SingleConcert" className="pl-12 ">SingleConcert</Link>
                     </li>
                 </ul>
             </nav>

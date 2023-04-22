@@ -1,7 +1,6 @@
 import logo from '../Resources/poster1.jpeg';
 import { ConcertType } from '../Router/Types.types';
 
-
 const ConcertCard: React.FC<ConcertType> = ({ title, image, date, location, ticketLink, description }) => {
   return (
     <div className="w-full lg:w-1/3 2xl:w-2/3 mb-6 mr-6 bg-slate-300 shadow-lg 

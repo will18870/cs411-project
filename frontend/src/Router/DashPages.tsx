@@ -15,20 +15,15 @@ const pagesData: routerType[] = [
     title: "Recommend",
   },
   {
-    path: "/Dash/SearchDash", 
+    path: "/SearchDash", 
     element: <SearchDash />,
     title: "Dash-SearchDash",
   },
   {
-    path: "/Dash/SingleConcert", 
+    path: "/SingleConcert", 
     element: <SingleConcert />,
     title: "SingleConcert",
-  },
-  // {
-  //   path: "/Dash/SingleGenre", 
-  //   element: <SingleGenre />,
-  //   title: "Dash-SearchDash",
-  // },
+  }
 ];
 
 const Dash: React.FC = (): JSX.Element => {
