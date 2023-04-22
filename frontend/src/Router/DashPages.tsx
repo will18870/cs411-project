@@ -2,11 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { routerType } from "../Router/Types.types";
 import Recommend from "../components/Recommend";
-// import CategoryPage from "../Pages/Dash/CategoryPage";
 import SearchDash from "../Pages/Dash/SearchDash";
 import SingleConcert from "../Pages/Dash/SingleConcert";
-import Footer from '../components/Footer';
-// import SingleGenre from "../components/SingleGenre";
+import Favourite from "../Pages/Dash/Favourite";
+
 
 const pagesData: routerType[] = [
   {
@@ -23,6 +22,11 @@ const pagesData: routerType[] = [
     path: "/SingleConcert", 
     element: <SingleConcert />,
     title: "SingleConcert",
+  },
+  {
+    path: "/Favourite", 
+    element: <Favourite />,
+    title: "Favourite",
   }
 ];
 
@@ -31,12 +35,7 @@ const Dash: React.FC = (): JSX.Element => {
     <Route key={path} path={`/${path}`} element={element} />
   ));
 
-  return (
-    <div>
-      <Routes>{pageRoutes}</Routes>
-    </div>
-   
-  );
+  return (<Routes>{pageRoutes}</Routes> );
 };
 
 export default Dash;

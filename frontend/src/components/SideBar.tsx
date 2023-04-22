@@ -11,7 +11,7 @@ function Sidebar() {
                         <Link to="./SearchDash" className="pl-12 ">Search</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="~/CategoryPage" className="pl-12 ">Favourite</Link>
+                        <Link to="./Favourite" className="pl-12 ">Favourite</Link>
                     </li>
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
                         <Link to="~/SingleGenre" className="pl-12 ">SingleGenre</Link>
