@@ -1,7 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { handleSpotifyLogin } from "../components/LoginOauth";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import handleSpotifyLogin from '../components/LoginOauth';
 
 interface Props { }
 
@@ -19,7 +18,19 @@ const Status: React.FC<Props> = () => {
   );
 };
 
-const HomeNavBar: React.FC = (): JSX.Element => {
+const NavBar: React.FC = (): JSX.Element => {
+  const handleLinkClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    try {
+      const access_token = await handleSpotifyLogin();
+      
+      localStorage.setItem('spotify_access_token', access_token);
+      window.location.href = '/'; // replace with the URL you want to redirect to after authorization
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="mt-0 transition-all  flex flex-row items-center bg-white border-solid  border-b-2 border-black">
       <p className="text-lg font-medium flex left mx-8 text-black py-4">Logo</p>
@@ -31,7 +42,7 @@ const HomeNavBar: React.FC = (): JSX.Element => {
           <Link to="/Members">Members</Link>
         </li>
         <li className="mr-5">
-          <Link to="/Spotify" onClick={handleSpotifyLogin} >Spotify</Link>
+          <a href="/" onClick={handleLinkClick}>About</a>
         </li>
         <li>
           <Link to="/Login">Login</Link>
@@ -44,4 +55,4 @@ const HomeNavBar: React.FC = (): JSX.Element => {
   );
 };
 
-export default HomeNavBar;
+export default NavBar;

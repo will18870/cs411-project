@@ -51,7 +51,7 @@ function Dashboard() {
             <li key={artist.id}>{artist.name}</li>
           ))}
         </ul>
-        <button onClick={refreshArtists}>Refresh</button>
+        
         <Dash />
       </div>
     </div>

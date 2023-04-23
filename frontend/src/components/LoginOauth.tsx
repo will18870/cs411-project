@@ -1,26 +1,40 @@
 import axios from "axios";
-export const handleSpotifyLogin = () => {
+import React from 'react';
+
+const handleSpotifyLogin = () => {
     const client_id = '18536c2c4edc44e5a39a3370deea262a';
-    const redirect_uri = 'http://localhost:5173/Dash'; // Update the redirect URI here
+    const redirect_uri = 'http://localhost:5173';
     const scopes = ['user-read-private', 'user-read-email'];
-
     const authEndpoint = 'https://accounts.spotify.com/authorize';
-    const queryParams = [
-        `client_id=${client_id}`,
-        `redirect_uri=${redirect_uri}`,
-        `scope=${scopes.join('%20')}`,
-        `response_type=token`,
-    ];
+    const RESPONSE_TYPE = 'token';
+  
+    return new Promise((resolve, reject) => {
+      const handleAuthorizationResponse = (event: { origin: string; data: any; }) => {
+        if (event.origin !== window.location.origin) {
+          return;
+        }
+        const hash = event.data;
+        const params = new URLSearchParams(hash.substr(1));
+        const access_token = params.get('access_token');
+        if (access_token) {
+          resolve(access_token);
+        } else {
+          reject(new Error('Access token not found'));
+        }
+        window.removeEventListener('message', handleAuthorizationResponse);
+      };
+  
+      window.addEventListener('message', handleAuthorizationResponse);
+  
+      const url = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=${scopes.join('%20')}`;
+  
+      window.open(url, 'Spotify Login', 'width=600,height=600');
+    });
+  };
+  
+  export default handleSpotifyLogin;
+  
 
-    const url = `${authEndpoint}?${queryParams.join('&')}`;
-    window.location.href = url;
-    const hash = window.location.hash.substr(1);
-    const params = new URLSearchParams(hash);
-    const accessToken = params.get('access_token');
-    if (accessToken) {
-        localStorage.setItem('spotify_access_token', accessToken);
-    }
-};
 
 
 
@@ -38,7 +52,7 @@ export const handleGoogleLogin = () => {
     ];
     const url = `${authEndpoint}?${queryParams.join('&')}`;
 
-    window.location.href = url + '/Dash';
+    window.location.href = url ;
 };
 
 export const handleLinkedInLogin = async () => {
