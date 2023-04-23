@@ -128,14 +128,16 @@
 // export default Login;
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import * as querystring from "querystring";
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null);
 
   const handleSpotifyLogin = async () => {
     const clientId = '8368d220a5bd459db1f24d384a859cf7';
-    const redirectUri = 'http://localhost:3000/callback';
+    const redirectUri = 'http://localhost:5000/Login';
 
     try {
       window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&show_dialog=true`;
@@ -144,6 +146,41 @@ const Login = () => {
       setError("Failed to login with Spotify");
     }
   };
+
+  useEffect(() => {
+    const getAccessToken = async () => {
+      const params = new URLSearchParams(window.location.search);
+      console.log(window.location.search)
+      const code = params.get('code');
+
+      if (code) {
+        try {
+          const response = await axios.post(
+              'https://accounts.spotify.com/api/token',
+              querystring.stringify({
+                grant_type: 'authorization_code',
+                code,
+                redirect_uri: 'http://localhost:5000/Login',
+                client_id: '8368d220a5bd459db1f24d384a859cf7',
+                client_secret: '31cd2b87af204c0b93bff5a0771719c8',
+              }),
+              {
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+              }
+          );
+          const { access_token } = response.data;
+          // store the accessToken in state or local storage
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
+    let accessToken = getAccessToken();
+    console.log(accessToken)
+  }, []);
 
   return (
       <div className="flex items-center justify-end h-screen pr-32 bg-gray-50">

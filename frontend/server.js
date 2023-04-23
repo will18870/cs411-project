@@ -15,6 +15,63 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const tmKey = '0txRTCElnYysjp6wGw85pTQwcXUPIXfv';
 
 
+const client_id = '8368d220a5bd459db1f24d384a859cf7';
+const client_secret = '31cd2b87af204c0b93bff5a0771719c8';
+const redirect_uri = 'http://localhost:5000/Login';
+
+app.get('/Login*', (req, res) => {
+
+    const code = req.query.code || null;
+    const state = req.body.state || null;
+
+    console.log("has this been called?")
+    console.log("code = " + code)
+
+    if(code != null) {
+        const authOptions = {
+            url: 'https://accounts.spotify.com/api/token',
+            form: {
+                code: code,
+                redirect_uri: redirect_uri,
+                grant_type: 'authorization_code',
+            },
+            headers: {
+                Authorization:
+                    'Basic ' +
+                    new Buffer.from(client_id + ':' + client_secret).toString('base64'),
+            },
+            json: true,
+        };
+
+        request.post(authOptions, (error, response, body) => {
+
+            console.log(body)
+
+            const access_token = body.access_token;
+            const refresh_token = body.refresh_token;
+            const expires_in = body.expires_in;
+
+            const options = {
+                url: 'https://api.spotify.com/v1/me',
+                headers: {Authorization: 'Bearer ' + access_token},
+                json: true,
+            };
+
+            request.get(options, (error, response, body) => {
+                console.log(body);
+            });
+        });
+    }
+
+    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        let content = data.toString()
+        res.send(content)
+    })
+});
+
 app.use("/", express.static(path.join(__dirname)));
 app.get("/api/v1", (req, res) => {
     res.json({
@@ -22,7 +79,6 @@ app.get("/api/v1", (req, res) => {
         from: "William",
     });
 });
-
 app.get("/Dash", (_req, res) => {
     console.log("at dash!")
 
@@ -52,20 +108,14 @@ app.get("/*", (_req, res) => {
 
     makeData()
 
-    fs.readFile(path.join(__dirname, "index.html"), function read(err, data) {
-        if (err) {
-            throw err;
-        }
-        let content = data.toString().replace("PAGE_PARAMETER", "http://localhost:3000/src/main.tsx");
-        res.send(content)
-    })
+    res.sendFile(path.join(__dirname, "index.html"))
 })
 
 function makeData() {
     request('https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02215&apikey=' + tmKey, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             let info = JSON.parse(body)
-            console.log(info)
+            // console.log(info)
             if (info.page.totalElements == 0)
             {
                 return
@@ -113,15 +163,15 @@ function makeData() {
                 }
             })
 
-            console.log(result)
-            console.log(eventList[0])
-            console.log(eventList[0]._embedded.venues[0])
-            console.log(eventList[0].classifications[0].genre)
-            console.log(eventList[19].classifications[0].genre)
-            console.log(eventList[0].classifications[0].segment)
-            console.log(eventList[19].classifications[0].segment)
-            console.log(eventList[0].classifications[0].subGenre)
-            console.log(eventList[19].classifications[0].subGenre)
+            // console.log(result)
+            // console.log(eventList[0])
+            // console.log(eventList[0]._embedded.venues[0])
+            // console.log(eventList[0].classifications[0].genre)
+            // console.log(eventList[19].classifications[0].genre)
+            // console.log(eventList[0].classifications[0].segment)
+            // console.log(eventList[19].classifications[0].segment)
+            // console.log(eventList[0].classifications[0].subGenre)
+            // console.log(eventList[19].classifications[0].subGenre)
         }
     })
 }
