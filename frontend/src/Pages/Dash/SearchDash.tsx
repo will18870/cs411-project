@@ -1,6 +1,4 @@
 import Sidebar from '../../components/SideBar';
-import DashTopbar from '../../components/Topbar';
-// import { Genre } from '../../datas/Genre.data';
 import Genre from '../../datas/Genredata.json';
 import { GenreCardProps } from "../../Router/Types.types";
 import { Link } from 'react-router-dom';
@@ -23,9 +21,9 @@ export default function SearchDash() {
                 {/* <DashTopbar /> */}
 
                 <div className="ml-16">
-                    <p className='text-black text-8xl font-bold truncate pt-20 border-b-4 border-black'>Explore All</p>
+                    <p className='text-black text-8xl font-bold truncate pt-36   border-b-4 border-black'>Explore All</p>
 
-                    <div className=" pt-6 pr-4">
+                    <div className=" pt-12 pr-8">
                         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 truncate" >
                             {Genre.map((genre: GenreCardProps) => (
                                 <Link to={`/Dash/genre/${genre.title}`} key={genre.title}>
@@ -41,8 +39,9 @@ export default function SearchDash() {
                         </div>
 
                     </div>
-                    <Footer />
+                    
                 </div>
+                <Footer />
             </div>
         </div>
     );

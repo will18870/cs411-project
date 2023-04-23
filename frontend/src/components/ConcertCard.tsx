@@ -13,7 +13,7 @@ function ConcertCard(props: ConcertType) {
   return (
     <div className="sm:w-1/2 md:w-1/3 lg:w-1/4 mb-8 mr-8 bg-white shadow-lg 
                     rounded-lg overflow-hidden opacity-100 hover:opacity-75 hover:shadow-2xl
-                    hover:rounded-b-lg aspect-square border-4 border-black
+                    hover:rounded-b-lg aspect-square border-2 border-black
                     " onClick={handleClick} >
       <img className="2xl:w-full 2xl:h-48 object-cover  opacity-100" src={logo} alt={title} />
       <div className=" w-1/2 ml-4">

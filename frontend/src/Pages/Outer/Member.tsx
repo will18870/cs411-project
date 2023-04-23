@@ -1,7 +1,7 @@
 import NavBar from "../../components/NavBar";
 import MemberCard from "../../components/MemberCard";
 import Footer from "../../components/Footer";
-import { members } from "../../datas/member.data";
+import members from "../../datas/Memberdata.json";
 
 
 export default function MembersPage() {

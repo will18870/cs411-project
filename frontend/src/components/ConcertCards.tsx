@@ -7,7 +7,7 @@ function ConcertCards() {
   const concertsData= Concertdata.concerts;
   return (
     <>
-      <div className="flex felx-row mt-6 truncate ">
+      <div className="flex felx-row mt-6 truncate  overflow-x-auto mr-8">
         {concertsData.map((concert: ConcertType) => (
           <ConcertCard
             key={concert.title}
