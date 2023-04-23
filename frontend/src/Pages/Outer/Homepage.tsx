@@ -2,6 +2,7 @@ import HomeNavBar from "../../components/NavBar";
 import Footer from "../../components/Footer"
 import spo from '../../Resources/tst1.png';
 import { Carousel } from 'antd';
+import {handleSpotifyLogin} from "../../components/LoginOauth";
 
 function Home() {
     const onChange = (currentSlide: number) => {
@@ -31,7 +32,8 @@ function Home() {
                                 Experience the local music scene like never before
                                 Find concerts effortlessly
                             </p>
-                            <button className=" text-2xl font-normal ml-48 border mt-8 bg-spotify py-4 px-8 rounded-xl justify-end">Get Start Now</button>
+                            <button className=" text-2xl font-normal ml-48 border mt-8
+                             bg-spotify py-4 px-8 rounded-xl justify-end" onClick={handleSpotifyLogin}>Get Start Now</button>
                         </div>
                     </div>
                     <img src={spo} alt="" className='w-1/2' />
