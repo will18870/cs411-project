@@ -110,7 +110,10 @@ function Home() {
                 </div>
                 
             </div>
+            <div className="ml-16">   
             <Footer />
+            </div>
+            
         </div>
     );
 }
