@@ -5,26 +5,31 @@ import Recommend from "../components/Recommend";
 import SearchDash from "../Pages/Dash/SearchDash";
 import SingleConcert from "../Pages/Dash/SingleConcert";
 import Favourite from "../Pages/Dash/Favourite";
-
+import SingleGenre from "../components/SingleGenre";
 
 const pagesData: routerType[] = [
   {
-    path: "/", 
+    path: "/",
     element: <Recommend />,
     title: "Recommend",
   },
   {
-    path: "/SearchDash", 
+    path: "/SearchDash",
     element: <SearchDash />,
     title: "Dash-SearchDash",
   },
   {
-    path: "/SingleConcert", 
+    path: "/Concert/:id",
     element: <SingleConcert />,
-    title: "SingleConcert",
+    title: "Concert",
   },
   {
-    path: "/Favourite", 
+    path: "/genre/:title",
+    element: <SingleGenre/>,
+    title: "SingleGenre",
+  },
+  {
+    path: "/Favourite",
     element: <Favourite />,
     title: "Favourite",
   }
@@ -35,7 +40,7 @@ const Dash: React.FC = (): JSX.Element => {
     <Route key={path} path={`/${path}`} element={element} />
   ));
 
-  return (<Routes>{pageRoutes}</Routes> );
+  return (<Routes>{pageRoutes}</Routes>);
 };
 
 export default Dash;

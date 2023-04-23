@@ -12,15 +12,20 @@ interface routerType {
 }
 
 interface ConcertType {
-  id: number;
+  genre:string
+  artist: string;
   title: string;
   image: string;
-  date: string;
-  location: string;
-  ticketLink: string;
   description: string;
-  genre: string
+  color: string;
+  address: string;
+  date: string;
+  time: string;
+  price: string;
+  url: string;
+  id: string;
 }
+
 interface GenreCardProps {
   title: string;
   image: string;

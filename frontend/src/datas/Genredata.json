@@ -1,0 +1,118 @@
+[
+    {
+      "title": "Alternative",
+      "image": "1.jpg",
+      "description": "This is the description of Alternative.",
+      "color": "red-700"
+    },
+    {
+      "title": "Blues",
+      "image": "2.jpg",
+      "description": "This is the description of Blues.",
+      "color": "blue-700"
+    },
+    {
+      "title": "Classical",
+      "image": "3.jpg",
+      "description": "This is the description of Classical.",
+      "color": "yellow-700"
+    },
+    {
+      "title": "Country",
+      "image": "4.jpg",
+      "description": "This is the description of Country.",
+      "color": "green-700"
+    },
+    {
+      "title": "Dance",
+      "image": "5.jpg",
+      "description": "This is the description of Dance.",
+      "color": "purple-700"
+    },
+    {
+      "title": "Electronic",
+      "image": "6.jpg",
+      "description": "This is the description of Electronic.",
+      "color": "pink-700"
+    },
+    {
+      "title": "Folk",
+      "image": "7.jpg",
+      "description": "This is the description of Folk.",
+      "color": "orange-700"
+    },
+    {
+      "title": "Hip Hop",
+      "image": "8.jpg",
+      "description": "This is the description of Hip Hop.",
+      "color": "teal-700"
+    },
+    {
+      "title": "Indie",
+      "image": "9.jpg",
+      "description": "This is the description of Indie.",
+      "color": "lime-700"
+    },
+    {
+      "title": "Jazz",
+      "image": "10.jpg",
+      "description": "This is the description of Jazz.",
+      "color": "red-600"
+    },
+    {
+      "title": "Latin",
+      "image": "11.jpg",
+      "description": "This is the description of Latin.",
+      "color": "blue-600"
+    },
+    {
+      "title": "Metal",
+      "image": "12.jpg",
+      "description": "This is the description of Metal.",
+      "color": "yellow-600"
+    },
+    {
+      "title": "Pop",
+      "image": "13.jpg",
+      "description": "This is the description of Pop.",
+      "color": "green-600"
+    },
+    {
+      "title": "Punk",
+      "image": "14.jpg",
+      "description": "This is the description of Punk.",
+      "color": "purple-600"
+    },
+    {
+      "title": "R&B",
+      "image": "15.jpg",
+      "description": "This is the description of R&B.",
+      "color": "pink-600"
+    },
+    {
+      "title": "Reggae",
+      "image": "16.jpg",
+      "description": "This is the description of Reggae.",
+      "color": "orange-600"
+    },
+    {
+      "title": "Rock",
+      "image": "17.jpg",
+      "description": "This is the description of Rock.",
+      "color": "teal-600"
+    },
+    {
+      "title": "Soul",
+      "image": "18.jpg",
+      "description": "This is the description of Soul.",
+      "color": "lime-600"
+    },
+    {
+      "title": "World",
+      "image": "19.jpg",
+      "description":"This is the description of Soul.",
+      "color": "lime-600"
+    }
+
+]
+  

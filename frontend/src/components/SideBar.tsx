@@ -13,12 +13,7 @@ function Sidebar() {
                     <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
                         <Link to="./Favourite" className="pl-12 ">Favourite</Link>
                     </li>
-                    <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="~/SingleGenre" className="pl-12 ">SingleGenre</Link>
-                    </li>
-                    <li className=" hover:shadow-md hover:bg-gray-300 py-2 tracking-wide">
-                        <Link to="./SingleConcert" className="pl-12 ">SingleConcert</Link>
-                    </li>
+                    
                 </ul>
             </nav>
         </div>
