@@ -60,13 +60,13 @@ const FavArtist = () => {
 
   return (
     <div>
-      <p>{Artist.limit}</p>
+      <p>{Artist.items[0].artists[0].name}</p>
     </div>
   );
 }
 
 const GetArtist = () => {
-  const id = '0TnOYISbd1XYRBk9myaseg';
+  const id = '2QcZxAgcs2I1q7CtCkl6MI';
   const apiUrl = `https://api.spotify.com/v1/artists/${id}`;
   
   const [artist, setArtist] = useState<any>({});

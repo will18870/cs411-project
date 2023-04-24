@@ -2,7 +2,7 @@ import axios from "axios";
 import React from 'react';
 
 export const handleSpotifyLogin = async () => { 
-  // localStorage.removeItem('spotify_access_token');
+  localStorage.removeItem('spotify_access_token');
   const client_id = '013ff36a5f2b484c9b3161eec10e97ac';
   const redirect_uri = 'http://localhost:5173/callback';
   const scopes = ['user-read-private', 'user-read-email',
