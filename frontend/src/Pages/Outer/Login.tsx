@@ -140,7 +140,7 @@ const Login = () => {
     const redirectUri = 'http://localhost:5000/Login';
 
     try {
-      window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&show_dialog=true`;
+      window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email%20user-top-read%20user-read-recently-played&show_dialog=true`;
     } catch (error) {
       console.error(error);
       setError("Failed to login with Spotify");
