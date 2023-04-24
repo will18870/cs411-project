@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
-const token = localStorage.getItem('spotify_access_token');
-const headers = { Authorization: `Bearer ${token}` };
 
-const User = () => {
-  const apiUrl = 'https://api.spotify.com/v1/me';
+function getjson(url: string) {
+  const token = localStorage.getItem('spotify_access_token');
+  const headers = { Authorization: `Bearer ${token}` };
+  const apiurl = url;
   const [data, setData] = useState<any>({});
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   useEffect(() => {
-    fetch(apiUrl, { headers })
+    fetch(apiurl, { headers })
       .then(response => response.json())
       .then(data => {
         setData(data);
@@ -16,86 +15,74 @@ const User = () => {
       })
       .catch(error => console.error(error));
   }, []);
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  const userInfoList = Object.entries(data).map(([key, value]) => (
-    <li key={key}>
-      {JSON.stringify(value)}
-    </li>
-  ));
-
-  return (
-    <div>
-      <ul>{data.display_name}</ul>
-      {/* <ul>{userInfoList}</ul> */}
-    </div>
-  );
-};
-
-const FavArtist = () => {
+  return data
+}
+function Userjson() {
+  return getjson('https://api.spotify.com/v1/me');
+}
+function FavArtistjson() {
   const type = 'tracks';
   const time_range = 'medium_term';
   const limit = 10;
   const offset = 3;
 
   const apiUrl = `https://api.spotify.com/v1/me/top/${type}?time_range=${time_range}&limit=${limit}&offset=${offset}`;
-  const [Artist, setArtist] = useState<any>({});
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    fetch(apiUrl, { headers })
-      .then(response => response.json())
-      .then(data => {
-        setArtist(data);
-        setIsLoading(false);
-      })
-      .catch(error => console.error(error));
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  return (
-    <div>
-      <p>{Artist.items[0].artists[0].name}</p>
-    </div>
-  );
+  return getjson(apiUrl);
+}
+function GetArtistjson(id: string) {
+  // const id = '2QcZxAgcs2I1q7CtCkl6MI'; 
+  const apiUrl = `https://api.spotify.com/v1/artists/${id}`;
+  return getjson(apiUrl);
+  {/* <p>{artist.followers.total}</p> */ }
+}
+function GetGenrejson(id: string) {
+  const apiUrl = `https://api.spotify.com/v1/artists/${id}/related-artists`;
+  return getjson(apiUrl);
+  {/* <p>{artist.followers.total}</p> */ }
 }
 
-const GetArtist = () => {
-  const id = '2QcZxAgcs2I1q7CtCkl6MI';
-  const apiUrl = `https://api.spotify.com/v1/artists/${id}`;
-  
-  const [artist, setArtist] = useState<any>({});
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    fetch(apiUrl, { headers })
-      .then(response => response.json())
-      .then(data => {
-        setArtist(data);
-        setIsLoading(false);
-      })
-      .catch(error => console.error(error));
-  }, []);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
+interface Event {
+  name: string;
+  url: string;
+  dates: {
+    start: {
+      dateTime: string;
+    };
+  };
+  _embedded: {
+    venues: {
+      name: string;
+    }[];
+  };
+}
+interface SearchParams {
+  apikey: string;
+  postalCode?: string;
+  keyword?: string;
+}
+
+async function ConcertSearch(key: string = "Boston") {
+  // Set the API endpoint and parameters
+  const url = "https://app.ticketmaster.com/discovery/v2/events.json";
+  let params: SearchParams = {
+    apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
+    keyword: key,
+  };
+
+
+  try {
+    // Send the API request and handle the response
+    const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`, { mode: 'no-cors' });
+    const data = await response.json();
+    return data._embedded.events;
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  return (
-    <div>
-      {artist.followers &&
-        <div>
-          <p>{artist.followers.total}</p>
-        </div>
-      }
-    </div>
-  );
-};
-
-export default FavArtist;
-export { User, FavArtist, GetArtist };
+export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch };

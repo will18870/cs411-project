@@ -1,13 +1,13 @@
 import axios from "axios";
-import React from 'react';
 
-export const handleSpotifyLogin = async () => { 
+
+export const handleSpotifyLogin = async () => {
   localStorage.removeItem('spotify_access_token');
   const client_id = '013ff36a5f2b484c9b3161eec10e97ac';
   const redirect_uri = 'http://localhost:5173/callback';
   const scopes = ['user-read-private', 'user-read-email',
-  'user-top-read','user-read-playback-position',
-  'user-read-recently-played'];
+    'user-top-read', 'user-read-playback-position',
+    'user-read-recently-played'];
   const authEndpoint = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
 
@@ -35,7 +35,7 @@ export const handleSpotifyLogin = async () => {
   } else {
     console.log('Refresh token not found.');
   }
-  
+
   // Check if access token has expired
   const expiresAt = parseInt(params.get('expires_in')!, 10) * 1000 + new Date().getTime();
   if (expiresAt <= new Date().getTime()) {

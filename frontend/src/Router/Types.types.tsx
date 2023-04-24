@@ -12,18 +12,23 @@ interface routerType {
 }
 
 interface ConcertType {
-  genre:string
-  artist: string;
-  title: string;
-  image: string;
-  description: string;
-  color: string;
-  address: string;
-  date: string;
-  time: string;
-  price: string;
-  url: string;
   id: string;
+   name : string;
+   address: string;
+   price_min : string;
+   price_max : string;
+   date : string;
+   time: string;
+   url : string;
+   image: string;
+   genre : string;
+   subgenre: string;
+   segment: string;
+   type: string;
+   status : string;
+   info : string;
+   seatmap : string;
+   description : string;
 }
 
 interface GenreCardProps {
