@@ -18,10 +18,16 @@ async function main(){
 
         await listDatabases(client);
 
-        /*await storeUsers(client, {
-            name: "Albert",
-            concert: testMap["Albert"]
-        });*/
+        if (await findUser(client, "Albert")){
+            console.log("found uuuu");
+        }
+        else{
+            await storeUsers(client, {
+                name: "Albert",
+                concert: testMap["Albert"]
+            });
+        }
+
 
     } catch (e) {
         console.error(e)
@@ -46,6 +52,21 @@ async function listDatabases(client){
 async function storeUsers(client,newListing){
    const result = await client.db("Users").collection("Users_Concert").insertOne(newListing);
    console.log(`new listing created: ${result.insertedID}`);
+}
+
+async function findUser(client,nameofListing){
+    const result = await client.db("Users").collection("Users_Concert").findOne({name: nameofListing})
+    if (result){
+        console.log(`Found list with'${nameofListing}'`);
+        console.log(result);
+        return true;
+    }   
+    else {
+        console.log(`No listing with'${nameofListing}'`);
+        return false;
+
+    }
+
 }
 
 
