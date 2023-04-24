@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import handleSpotifyLogin from '../components/LoginOauth';
+// import handleSpotifyLogin from '../components/LoginOauth';
 
 interface Props { }
 
@@ -19,17 +19,17 @@ const Status: React.FC<Props> = () => {
 };
 
 const NavBar: React.FC = (): JSX.Element => {
-  const handleLinkClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    try {
-      const access_token = await handleSpotifyLogin();
+  // const handleLinkClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+  //   event.preventDefault();
+  //   try {
+  //     const access_token = await handleSpotifyLogin();
       
-      localStorage.setItem('spotify_access_token', access_token);
-      window.location.href = '/'; // replace with the URL you want to redirect to after authorization
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     localStorage.setItem('spotify_access_token', access_token);
+  //     window.location.href = '/'; // replace with the URL you want to redirect to after authorization
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className="mt-0 transition-all  flex flex-row items-center bg-white border-solid  border-b-2 border-black">
@@ -42,7 +42,7 @@ const NavBar: React.FC = (): JSX.Element => {
           <Link to="/Members">Members</Link>
         </li>
         <li className="mr-5">
-          <a href="/" onClick={handleLinkClick}>About</a>
+          <a href="/">About</a>
         </li>
         <li>
           <Link to="/Login">Login</Link>

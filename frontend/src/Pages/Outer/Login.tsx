@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import { handleGoogleLogin,handleSpotifyLogin } from '../../components/LoginOauth';
+// import { handleGoogleLogin,handleSpotifyLogin } from '../../components/LoginOauth';
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null);  
@@ -31,14 +31,14 @@ const Login = () => {
         {error && <div className="text-red-500 mb-4">{error}</div>}
         <div className='flex flex-col '>
         <button
-          onClick={handleGoogleLogin}
+          // onClick={handleGoogleLogin}
           className="bg-red-600 text-white font-bold py-2 px-4 rounded-lg
            hover:bg-red-700 transition-colors duration-300 mb-4"
         >
           Login with Google
         </button>
         <button
-          onClick={handleSpotifyLogin}
+          // onClick={handleSpotifyLogin}
           className="bg-red-600 text-white font-bold py-2 px-4 rounded-lg 
           hover:bg-red-700 transition-colors duration-300 mb-4"
 

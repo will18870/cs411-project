@@ -1,73 +1,56 @@
 import axios from "axios";
 import React from 'react';
 
-const handleSpotifyLogin = () => {
-    const client_id = '18536c2c4edc44e5a39a3370deea262a';
-    const redirect_uri = 'http://localhost:5173';
-    const scopes = ['user-read-private', 'user-read-email'];
-    const authEndpoint = 'https://accounts.spotify.com/authorize';
-    const RESPONSE_TYPE = 'token';
+export const handleSpotifyLogin = async () => { 
+  // localStorage.removeItem('spotify_access_token');
+  const client_id = '013ff36a5f2b484c9b3161eec10e97ac';
+  const redirect_uri = 'http://localhost:5173/callback';
+  const scopes = ['user-read-private', 'user-read-email',
+  'user-top-read','user-read-playback-position',
+  'user-read-recently-played'];
+  const authEndpoint = 'https://accounts.spotify.com/authorize';
+  const RESPONSE_TYPE = 'token';
+
+  const url = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=${scopes.join('%20')}`;
+
+  window.location.href = url;
+
+  // Retrieve access token and refresh token from URL hash
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
+  const accessToken = params.get('access_token');
+  const refreshToken = params.get('refresh_token');
+
+  // Store access token and refresh token in local storage
+  if (accessToken) {
+    localStorage.setItem('spotify_access_token', accessToken);
+    console.log('Access token stored in local storage.');
+  } else {
+    console.log('Access token not found.');
+  }
+
+  if (refreshToken) {
+    localStorage.setItem('spotify_refresh_token', refreshToken);
+    console.log('Refresh token stored in local storage.');
+  } else {
+    console.log('Refresh token not found.');
+  }
   
-    return new Promise((resolve, reject) => {
-      const handleAuthorizationResponse = (event: { origin: string; data: any; }) => {
-        if (event.origin !== window.location.origin) {
-          return;
-        }
-        const hash = event.data;
-        const params = new URLSearchParams(hash.substr(1));
-        const access_token = params.get('access_token');
-        if (access_token) {
-          resolve(access_token);
-        } else {
-          reject(new Error('Access token not found'));
-        }
-        window.removeEventListener('message', handleAuthorizationResponse);
-      };
-  
-      window.addEventListener('message', handleAuthorizationResponse);
-  
-      const url = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=${scopes.join('%20')}`;
-  
-      window.open(url, 'Spotify Login', 'width=600,height=600');
+  // Check if access token has expired
+  const expiresAt = parseInt(params.get('expires_in')!, 10) * 1000 + new Date().getTime();
+  if (expiresAt <= new Date().getTime()) {
+    // Access token has expired, use refresh token to get a new one
+    const refreshToken = localStorage.getItem('spotify_refresh_token');
+    const response = await axios.post('https://accounts.spotify.com/api/token', {
+      grant_type: 'refresh_token',
+      refresh_token: refreshToken,
+      client_id: client_id,
     });
-  };
-  
-  export default handleSpotifyLogin;
-  
 
-
-
-
-export const handleGoogleLogin = () => {
-    const client_id = '720139912748-v598kftrdonmlafi0365gitm8dqqiv75.apps.googleusercontent.com';
-    const redirect_uri = 'http://localhost:5173/Login'; // Replace with your own redirect URI
-    const scope = 'email profile openid'; // Add any additional scopes you need
-
-    const authEndpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
-    const queryParams = [
-        `client_id=${client_id}`,
-        `redirect_uri=${redirect_uri}`,
-        `scope=${scope}`,
-        `response_type=code`,
-    ];
-    const url = `${authEndpoint}?${queryParams.join('&')}`;
-
-    window.location.href = url ;
+    // Store new access token and refresh token in local storage
+    localStorage.setItem('spotify_access_token', response.data.access_token);
+    localStorage.setItem('spotify_refresh_token', response.data.refresh_token);
+    console.log('New access token and refresh token stored in local storage.');
+  }
 };
 
-export const handleLinkedInLogin = async () => {
-    const clientId = '78tujv13mp98dq';
-    const redirectUri = 'https://localhost:5173';
-
-    try {
-        const { data } = await axios.get(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&state=987654321&scope=r_liteprofile%20r_emailaddress%20w_member_social`);
-        window.location.href = data;
-    } catch (error) {
-        console.error(error);
-        setError("Failed to login with LinkedIn");
-    }
-};
-
-function setError(arg0: string) {
-    throw new Error("Function not implemented.");
-}

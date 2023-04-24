@@ -9,7 +9,12 @@ import Dashboard from "../Pages/Dash/Dashboard";
 
 const pagesData: routerType[] = [
   {
-    path: "",
+    path: "/",
+    element: <Home />,
+    title: "Home",
+  },
+  {
+    path: "callback",
     element: <Home />,
     title: "Home",
   },

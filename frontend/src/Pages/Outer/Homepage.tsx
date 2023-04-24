@@ -33,7 +33,7 @@ function Home() {
                                 Find concerts effortlessly
                             </p>
                             <button className=" text-2xl font-normal ml-48 border mt-8
-                             bg-spotify py-4 px-8 rounded-xl justify-end" onClick={handleSpotifyLogin}>Get Start Now</button>
+                             bg-spotify py-4 px-8 rounded-xl justify-end" onClick={() => { console.log(handleSpotifyLogin); handleSpotifyLogin(); }} >Get Start Now</button>
                         </div>
                     </div>
                     <img src={spo} alt="" className='w-1/2' />
