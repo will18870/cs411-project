@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
-import { ConcertSearch } from "./apidata"
+import { ConcertSearch, getFavArtists } from "./apidata"
 
 async function filterUniqueEvents(key: string): Promise<any[]> {
   const events = await ConcertSearch(key);
@@ -31,8 +31,11 @@ function ConcertCards() {
 
     useEffect(() => {
         async function fetchData() {
-            const events = await ConcertSearch();
+            const events = await ConcertSearch("TWICE");
             setEventlist(events);
+
+            const artists = await getFavArtists()
+            window.console.log(artists)
         }
 
         fetchData();

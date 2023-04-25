@@ -28,7 +28,6 @@ const redirect_uri = 'http://localhost:5000/Login';
 
 
 app.get('/getConcerts*', (req, res) => {
-    console.log("trying")
     let term = req.query.term
     request('https://app.ticketmaster.com/discovery/v2/events.json?segmentId=KZFzniwnSyZfZ7v7nJ&keyword=' + term + '&size=5&apikey=' + tmKey, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -96,7 +95,40 @@ app.get('/getConcerts*', (req, res) => {
             res.json(info)
         }
     })
+
+    console.log("getting concerts...")
+
 })
+
+app.get('/getTopArtists*', (req, res) => {
+    let token = req.query.token
+    const options = {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }
+    request('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=3', options, function (error, response, body) {
+        if (!error) {
+            let info = JSON.parse(body)
+            // console.log(info.items)
+            // res.json(info)
+
+            let artists = []
+            for (let i = 0; i < info.items.length; i++) {
+                artists.push(info.items[i].name)
+            }
+
+            console.log(artists)
+            res.send(artists)
+        } else {
+            console.log("error!")
+
+        }
+    })
+
+    console.log("getting top artists...")
+})
+
 
 const { PORT = 5000 } = process.env;
 app.listen(PORT, () => {

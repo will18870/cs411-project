@@ -16,7 +16,7 @@ function getjson(url: string) {
       .catch(error => console.error(error));
   }, []);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return null;
   }
   return data
 }
@@ -32,6 +32,31 @@ function FavArtistjson() {
   const apiUrl = `https://api.spotify.com/v1/me/top/${type}?time_range=${time_range}&limit=${limit}&offset=${offset}`;
   return getjson(apiUrl);
 }
+
+async function getFavArtists() {
+  if (!localStorage.getItem('spotify_access_token')) {
+    return null
+  }
+  const token = localStorage.getItem('spotify_access_token');
+  const url = "http://localhost:5000/getTopArtists?token=" + token
+
+  try {
+    // Send the API request and handle the response
+    const response = await fetch(url);
+    if (!response.ok) {
+      // 如果响应状态不是 200 OK，则抛出一个错误
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const text = await response;
+    window.console.log(text)
+    return text;
+  } catch (error) {
+    console.error(error);
+    window.console.log({ _embedded: { events: [] } })
+    return { _embedded: { events: [] } };
+  }
+}
+
 function GetArtistjson(id: string) {
   // const id = '2QcZxAgcs2I1q7CtCkl6MI'; 
   const apiUrl = `https://api.spotify.com/v1/artists/${id}`;
@@ -93,4 +118,4 @@ async function ConcertSearch(key: string = "Boston") {
 }
 
 
-export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch };
+export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch, getFavArtists };
