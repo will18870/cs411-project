@@ -31,11 +31,11 @@ function ConcertCards() {
 
     useEffect(() => {
         async function fetchData() {
-            const events = await ConcertSearch("TWICE");
+            const events = await ConcertSearch("Classic");
             setEventlist(events);
 
-            const artists = await getFavArtists()
-            window.console.log(artists)
+            // const artists = await getFavArtists()
+            // window.console.log(artists)
         }
 
         fetchData();
@@ -56,21 +56,21 @@ function ConcertCards() {
             key={concert.id}
             name={concert.name}
             id={concert.id}
-            address={concert.address}
-            date={concert.date}
-            price_min={concert.price_min}
-            price_max={concert.price_max}
-            time={concert.time}
+            address={concert._embedded.venues[0].city.name}
+            date={concert.dates.start.localDate}
+            price_min={concert.priceRanges[0].min}
+            price_max={concert.priceRanges[0].max}
+            time={concert.dates.start.localTime}
             url={concert.url}
-            image={concert.image}
-            genre={concert.genre}
+            image={concert.images[0].url}
+            genre={concert.classifications[0].genre.name}
             subgenre={concert.subgenre}
             segment={concert.segment}
-            type={concert.type}
+            type={concert.classifications[0].genre.type}
             status={concert.status}
             info={concert.info}
             seatmap={concert.seatmap}
-            description={concert.description}
+            description={concert.info}
           />
         ))}
       </div>

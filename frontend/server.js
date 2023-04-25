@@ -29,70 +29,33 @@ const redirect_uri = 'http://localhost:5000/Login';
 
 app.get('/getConcerts*', (req, res) => {
     let term = req.query.term
-    request('https://app.ticketmaster.com/discovery/v2/events.json?segmentId=KZFzniwnSyZfZ7v7nJ&keyword=' + term + '&size=5&apikey=' + tmKey, function (error, response, body) {
+    request('https://app.ticketmaster.com/discovery/v2/events.json?segmentId=KZFzniwnSyZfZ7v7nJ&keyword=' + term + '&size=20&apikey=' + tmKey, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             let info = JSON.parse(body)
             // console.log(info)
             if (info.page.totalElements == 0) {
                 return ""
             }
-            // let eventList = info._embedded.events
-            // //console.log(info)
-            // //res.send(info._embedded.events)
-            //
-            // let concerts = []
-            // let prev = ""
-            // let count = 0
-            // for (let i = 0; i < eventList.length; i++) {
-            //
-            //     let event = eventList[i]
-            //     if (event.name === prev) {
-            //         continue;
-            //     }
-            //     if (count > 4) {
-            //         break;
-            //     }
-            //
-            //     prev = event.name
-            //     count++
-            //     let element = {
-            //         id: i + 1,
-            //         artist: "testArtist",
-            //         title: event.name,
-            //         image: event.images[0].url,
-            //         date: event.dates.start.localDate,
-            //         address: event._embedded.venues[0].city.name,
-            //         url: event.url,
-            //         description: "testDesc",
-            //         genre: event.classifications[0].genre,
-            //         color: "#fff",
-            //         time: "testTime",
-            //         price: "testPrice",
-            //     }
-            //
-            //     concerts.push(element);
-            // }
 
-            // let filePath = __dirname + '/src/datas/concert1.data.tsx'
-            // fs.writeFile(filePath, result, function(err) {
-            //     if (err) {
-            //         console.log("err")
-            //         throw err
-            //     }
-            // })
+            let concerts = "{ \"_embedded\":{ \"events\":["
+            let prev = ""
+            let count = 0
+            for (let i = 0; i < info._embedded.events.length; i++) {
+                if (info._embedded.events[i].name == prev)
+                    continue
+                if (count >= 5)
+                    break
 
-            // console.log(result)
-            // console.log(eventList[0])
-            // console.log(eventList[0]._embedded.venues[0])
-            // console.log(eventList[0].classifications[0].genre)
-            // console.log(eventList[19].classifications[0].genre)
-            // console.log(eventList[0].classifications[0].segment)
-            // console.log(eventList[19].classifications[0].segment)
-            // console.log(eventList[0].classifications[0].subGenre)
-            // console.log(eventList[19].classifications[0].subGenre)
-
-            console.log(info)
-            res.json(info)
+                if (i != 0) {concerts += ","}
+                count++
+                // console.log(info._embedded.events[i])
+                prev = info._embedded.events[i].name
+                concerts += JSON.stringify(info._embedded.events[i])
+            }
+            concerts += "] } }"
+            concerts = JSON.parse(concerts)
+            // console.log(info)
+            res.json(concerts)
         }
     })
 
@@ -107,25 +70,50 @@ app.get('/getTopArtists*', (req, res) => {
             'Authorization': `Bearer ${token}`
         }
     }
+
+    let artists = []
     request('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=3', options, function (error, response, body) {
         if (!error) {
             let info = JSON.parse(body)
             // console.log(info.items)
             // res.json(info)
 
-            let artists = []
             for (let i = 0; i < info.items.length; i++) {
                 artists.push(info.items[i].name)
             }
 
             console.log(artists)
             res.send(artists)
+
+            // console.log(concerts)
+            // res.json(concerts)
+
+            // let concerts = "{ \"_embedded\":{ \"events\":["
+            // for (let i = 0; i < artists.length; i++) {
+            //     let prev = ""
+            //     request('https://app.ticketmaster.com/discovery/v2/events.json?segmentId=KZFzniwnSyZfZ7v7nJ&keyword=' + artists[i] + '&size=5&apikey=' + tmKey, function (error, response, body) {
+            //         if (!error) {
+            //             let info = JSON.parse(body)
+            //             console.log(info)
+            //             if (!info) {
+            //                 let events = info._embedded.events
+            //                 for (let j = 0; j < events.length; j++) {
+            //                     if (prev == events[j].name) {
+            //                         continue
+            //                     }
+            //                     prev = events[j].name
+            //                     concerts += JSON.stringify(events[j])
+            //                 }
+            //             }
+            //         }
+            //     })
+            // }
+
         } else {
             console.log("error!")
 
         }
     })
-
     console.log("getting top artists...")
 })
 
