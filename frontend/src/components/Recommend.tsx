@@ -5,11 +5,11 @@ export default function Recommend() {
         <div className="ml-56">
             <div className="truncate ml-16 text-black text-6xl font-bold pt-36 ">
                 <p className='border-b-2 border-black mb-8'>We Recommend for you </p>
-                <ConcertCards />
+                {/* <ConcertCards /> */}
                 <p className='mt-40 border-b-2 border-black mb-8'>Your Favorite Artists </p>
-                <ConcertCards />
+                {/* <ConcertCards /> */}
                 <p className='mt-40 border-b-2 border-black mb-8'>Concerts Near You </p>
-                <ConcertCards />
+                {/* <ConcertCards /> */}
             </div>
             <Footer/>
         </div>

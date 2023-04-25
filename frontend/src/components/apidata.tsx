@@ -74,15 +74,21 @@ async function ConcertSearch(key: string = "Boston") {
     keyword: key,
   };
 
-
   try {
     // Send the API request and handle the response
-    const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`, { mode: 'no-cors' });
-    const data = await response.json();
-    return data._embedded.events;
+    const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
+    if (!response.ok) {
+      // 如果响应状态不是 200 OK，则抛出一个错误
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
+    return data;
   } catch (error) {
     console.error(error);
+    return { _embedded: { events: [] } };
   }
 }
+
 
 export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch };
