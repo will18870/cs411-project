@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-async function deleteConcertFromUser(name, artist) {
+async function deleteConcertFromUser(name, title) {
     const uri =
       "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
@@ -16,7 +16,7 @@ async function deleteConcertFromUser(name, artist) {
   
       // Find the index of the concert object with the specified artist
       const index = concertArray.findIndex(
-        (concert) => concert.artist === artist
+        (concert) => concert.title === title
       );
   
       // If the concert object is found, remove it from the array and update the user document
@@ -26,9 +26,9 @@ async function deleteConcertFromUser(name, artist) {
           { name: name },
           { $set: { concert: concertArray } }
         );
-        console.log(`Deleted concert by ${artist} from ${name}`);
+        console.log(`Deleted concert by ${title} from ${name}`);
       } else {
-        console.log(`No concert by ${artist} found for ${name}`);
+        console.log(`No concert by ${title} found for ${name}`);
       }
     } catch (e) {
       console.error(e);
