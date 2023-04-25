@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {ConcertSearch} from './apidata';
 const result = await ConcertSearch("Classic");
-const eventName = result._embedded.events[1].name;
+const eventName = result._embedded.events[0].name;
 
 export default function SingleGenre() {
     const { title } = useParams();

@@ -68,24 +68,26 @@ interface SearchParams {
 
 async function ConcertSearch(key: string = "Boston") {
   // Set the API endpoint and parameters
-  const url = "https://app.ticketmaster.com/discovery/v2/events.json";
+  const url = "http://localhost:5000/getConcerts?term=" + key;
   let params: SearchParams = {
-    apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
+    apikey: "0txRTCElnYysjp6wGw85pTQwcXUPIXfv",
     keyword: key,
   };
 
   try {
     // Send the API request and handle the response
-    const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
+    const response = await fetch(url);
     if (!response.ok) {
       // 如果响应状态不是 200 OK，则抛出一个错误
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const text = await response.text();
     const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
+    window.console.log(data)
     return data;
   } catch (error) {
     console.error(error);
+    window.console.log({ _embedded: { events: [] } })
     return { _embedded: { events: [] } };
   }
 }
