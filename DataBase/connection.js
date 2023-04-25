@@ -33,8 +33,13 @@ async function main(){
 
 
 const { addConcertToUser } = require('./add_concert_function');
-// example usage
-addConcertToUser('Albert', { genre: 'Rock', artist: 'Queen' });
+// example manually calling add_concert_function test
+addConcertToUser('Albert', { genre: 'Pop', artist: 'Harry' });
+
+
+const { deleteConcertFromUser } = require('./delete_concert_function');
+// example manually calling delete_concert_function test
+deleteConcertFromUser('Albert', 'Queen');
 
 }
 main().catch(console.error);
