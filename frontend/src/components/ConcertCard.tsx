@@ -1,11 +1,10 @@
-import logo from '../Resources/poster1.jpeg';
 import { ConcertType } from '../Router/Types.types';
 import { useNavigate } from 'react-router-dom';
 
 
-function ConcertCard(props: ConcertType) {
+function ConcertCard(props: any) {
 
-  const { name, id, address, date } = props;
+  const { name, address, date, images } = props;
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/Dash/Concert/${props.id}`);
@@ -16,11 +15,15 @@ function ConcertCard(props: ConcertType) {
                     rounded-lg overflow-hidden opacity-100 hover:opacity-75 hover:shadow-2xl
                     hover:rounded-b-lg aspect-square border-2 border-black
                     " onClick={handleClick} >
-      <img className="2xl:w-full 2xl:h-48 object-cover  opacity-100" src={logo} alt={"alt"} />
-      <div className=" w-1/2 ml-4">
-        <h2 className="font-bold text-2xl mb- pt-3">{name}</h2>
-        <p className="text-sm font-medium flex flex-wrap">{address}</p>
-        <p className="text-sm font-medium flex flex-wrap">{date}</p>
+      <div className='h-1/2 lg:w-full object-contain items-center'>
+        <img className=""
+          src={images[0].url} alt={"alt"} />
+
+      </div>
+      <div className=" mx-4 mt-4 truncate">
+        <h2 className="font-bold text-3xl mb- pt-3  truncate">{name}</h2>
+        <p className="text-2xl font-medium ">{address}</p>
+        <p className="text-xl font-medium ">{date}</p>
       </div>
     </div>
   );

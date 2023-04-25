@@ -5,15 +5,16 @@ import { useEffect, useState } from "react";
 
 interface index {
   searchindex: string;
+  postalcode: string;
 }
 
 function ConcertCards(props: index) {
-  const { searchindex } = props;
+  const { searchindex,postalcode } = props;
   const [eventlist, setEventList] = useState<ConcertType[]>([]);
 
   useEffect(() => {
     async function fetchConcerts() {
-      const data = await ConcertSearch(searchindex);
+      const data = await ConcertSearch(searchindex,postalcode );
       setEventList(data ?? []);
     }
     fetchConcerts();
@@ -22,26 +23,26 @@ function ConcertCards(props: index) {
   return (
     <>
       <div className="flex felx-row mt-6 truncate  overflow-x-auto mr-8">
-        {eventlist.map((concert: ConcertType) => (
+        {eventlist.map((data) => (
           <ConcertCard
-            key={concert.id}
-            name={concert.name}
-            id={concert.id}
-            address={concert.address}
-            date={concert.date}
-            price_min={concert.price_min}
-            price_max={concert.price_max}
-            time={concert.time}
-            url={concert.url}
-            image={concert.image}
-            genre={concert.genre}
-            subgenre={concert.subgenre}
-            segment={concert.segment}
-            type={concert.type}
-            status={concert.status}
-            info={concert.info}
-            seatmap={concert.seatmap}
-            description={concert.description}
+            key={data.id}
+            name={data.name}
+            id={data.id}
+            address={data._embedded.venues[0].name}
+            date={data.dates.start.localDate}
+            price_min={data.price_min}
+            images = {data.images}
+            price_max={data.price_max}
+            time={data.time}
+            url={data.url}
+            genre={data.genre}
+            subgenre={data.subgenre}
+            segment={data.segment}
+            type={data.type}
+            status={data.status}
+            info={data.info}
+            seatmap={data.seatmap}
+            description={data.description}
           />
         ))}
       </div>

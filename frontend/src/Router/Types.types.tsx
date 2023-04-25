@@ -12,23 +12,31 @@ interface routerType {
 }
 
 interface ConcertType {
+  _embedded: any;
   id: string;
-   name : string;
-   address: string;
-   price_min : string;
-   price_max : string;
-   date : string;
-   time: string;
-   url : string;
-   image: string;
-   genre : string;
-   subgenre: string;
-   segment: string;
-   type: string;
-   status : string;
-   info : string;
-   seatmap : string;
-   description : string;
+  name: string;
+  address: string;
+  price_min: string;
+  price_max: string;
+  date: string;
+  dates: {
+    start: {
+      localDate: string;
+    }
+  }
+  time: string;
+  url: string;
+  images: {
+    url: string
+  }[];
+  genre: string;
+  subgenre: string;
+  segment: string;
+  type: string;
+  status: string;
+  info: string;
+  seatmap: string;
+  description: string;
 }
 
 interface GenreCardProps {
@@ -83,6 +91,6 @@ interface UserInfo {
   uri: string;
 }
 
-  // Add other properties as needed
+// Add other properties as needed
 
-export type { MemberType, routerType, ConcertType, GenreCardProps,Artist,Followers ,UserInfo} ;
+export type { MemberType, routerType, ConcertType, GenreCardProps, Artist, Followers, UserInfo };
