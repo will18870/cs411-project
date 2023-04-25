@@ -41,7 +41,6 @@ function GetArtistjson(id: string) {
 function GetGenrejson(id: string) {
   const apiUrl = `https://api.spotify.com/v1/artists/${id}/related-artists`;
   return getjson(apiUrl);
-  {/* <p>{artist.followers.total}</p> */ }
 }
 
 
@@ -66,7 +65,7 @@ interface SearchParams {
   keyword?: string;
 }
 
-async function ConcertSearch(key: string = "Boston") {
+async function ConcertSearch(key: string ) {
   // Set the API endpoint and parameters
   const url = "https://app.ticketmaster.com/discovery/v2/events.json";
   let params: SearchParams = {
@@ -75,18 +74,26 @@ async function ConcertSearch(key: string = "Boston") {
   };
 
   try {
-    // Send the API request and handle the response
     const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
+    console.log(`${url}?${new URLSearchParams({ ...params })}`);
     if (!response.ok) {
-      // 如果响应状态不是 200 OK，则抛出一个错误
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const text = await response.text();
     const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
-    return data;
+    let list = data._embedded.events;
+    let eventlist = [];
+    let seen = new Set();
+    for (let i = 0; i < list.length; i++) {
+      if (!seen.has(list[i].name)) {
+        seen.add(list[i].name);
+        eventlist.push(list[i]);
+      }
+    }
+    return eventlist.slice(0, 3);
   } catch (error) {
     console.error(error);
-    return { _embedded: { events: [] } };
+    // return { _embedded: { events: [] } };
   }
 }
 

@@ -1,30 +1,24 @@
-
 import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
 import { ConcertSearch } from "./apidata"
+import { useEffect, useState } from "react";
 
-
-async function filterUniqueEvents(key: string): Promise<any[]> {
-  const events = await ConcertSearch(key);
-  const uniqueEvents = events.filter((event: { name: any; }, index: any, self: any[]) =>
-    index === self.findIndex((e: { name: any; }) => e.name === event.name)
-  );
- 
-  for (let i = 0; i < uniqueEvents.length - 1; i++) {
-    if (uniqueEvents[i].name === uniqueEvents[i + 1].name) {
-      uniqueEvents.splice(i, 1);
-      i--;
-    }
-  }
-
-  console.log('eventList:1', uniqueEvents[1]);
-  console.log('eventList:6', uniqueEvents[6]);
-  return uniqueEvents;
+interface index {
+  searchindex: string;
 }
 
+function ConcertCards(props: index) {
+  const { searchindex } = props;
+  const [eventlist, setEventList] = useState<ConcertType[]>([]);
 
-async function ConcertCards() {
-  const eventlist = await filterUniqueEvents("classic");
+  useEffect(() => {
+    async function fetchConcerts() {
+      const data = await ConcertSearch(searchindex);
+      setEventList(data ?? []);
+    }
+    fetchConcerts();
+  }, [searchindex]);
+
   return (
     <>
       <div className="flex felx-row mt-6 truncate  overflow-x-auto mr-8">

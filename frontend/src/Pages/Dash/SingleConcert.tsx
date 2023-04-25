@@ -2,15 +2,16 @@
 import Footer from '../../components/Footer';
 import ConcertCards from '../../components/ConcertCards';
 import { useParams } from "react-router-dom";
-import concertsData from '../../datas/Concertdata.json';
+import  concertsData  from '../../datas/Concertdata.json'
 
 export default function SingleConcert() {
     const { id } = useParams();
+
     const concert = concertsData.concerts.find((concert: { id: string | undefined; }) => concert.id === id);
-    if (!concert) {
-        return <div>Concert not found</div>;
-    }
-    const { artist, title, image, description, color, address, date, time, price, url, genre } = concert || {};
+if (!concert) {
+    return <div>Concert not found</div>;
+}
+    const { artist, title, image, description, address, time, url, genre } = concert || {};
     return (
         <div className="h-max">
             <div className="ml-56 ">
@@ -57,7 +58,7 @@ export default function SingleConcert() {
                     </div>
                     <div>
                         <h2 className="mt-8 text-4xl font-semibold">Similiar Event</h2>
-                        <ConcertCards />
+                        <ConcertCards searchindex='02215'/>
                        
                     </div>
                     
@@ -67,3 +68,9 @@ export default function SingleConcert() {
         </div>
     );
 }
+
+
+// const concert = concertsData.concerts.find((concert: { id: string | undefined; }) => concert.id === id);
+// if (!concert) {
+//     return <div>Concert not found</div>;
+// }

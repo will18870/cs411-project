@@ -12,8 +12,9 @@ export const handleSpotifyLogin = async () => {
   const RESPONSE_TYPE = 'token';
 
   const url = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${RESPONSE_TYPE}&scope=${scopes.join('%20')}`;
-
+  // console.log(url);
   window.location.href = url;
+  
 
   // Retrieve access token and refresh token from URL hash
   const hash = window.location.hash.substring(1);

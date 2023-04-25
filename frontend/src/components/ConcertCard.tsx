@@ -8,7 +8,7 @@ function ConcertCard(props: ConcertType) {
   const { name, id, address, date } = props;
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/Dash/Concert/${id}`);
+    navigate(`/Dash/Concert/${props.id}`);
   };
 
   return (

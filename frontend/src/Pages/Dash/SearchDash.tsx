@@ -27,7 +27,6 @@ export default function SearchDash() {
                         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 truncate" >
                             {Genre.map((genre: GenreCardProps) => (
                                 <Link to={`/Dash/genre/${genre.title}`} key={genre.title}>
-
                                     <GenreCard
                                         title={genre.title}
                                         image={genre.image}
