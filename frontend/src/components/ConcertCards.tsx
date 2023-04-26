@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';import { ConcertType } from "../Router/Types.types";
+import axios from 'axios';
+import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
 import { ConcertSearch, getFavArtists } from "./apidata"
 
@@ -31,8 +32,27 @@ function ConcertCards() {
 
     useEffect(() => {
         async function fetchData() {
-            const events = await ConcertSearch("Classic");
-            setEventlist(events);
+            const data = await getFavArtists()
+            const artists = JSON.parse(data)
+            window.console.log(artists.artists.length)
+
+            while(!artists) {
+                console.log("waiting")
+                continue
+            }
+
+            // let result = []
+            // for (let i = 0; i < artists.artists.length; i++) {
+            //     let event = await ConcertSearch(artists.artists[i].artist)
+            //     for (let j = 0; j < event.length; j++) {
+            //         result.push(event[j])
+            //     }
+            // }
+            // window.console.log(result)
+            // setEventlist(result)
+
+            const thing = await ConcertSearch(artists.artists[2].artist)
+            setEventlist(thing)
 
             // const artists = await getFavArtists()
             // window.console.log(artists)
@@ -51,15 +71,15 @@ function ConcertCards() {
     return (
     <>
       <div className="flex felx-row mt-6 truncate  overflow-x-auto mr-8">
-        {eventlist._embedded.events.map((concert: ConcertType) => (
+        {eventlist.map((concert: ConcertType) => (
           <ConcertCard
             key={concert.id}
             name={concert.name}
             id={concert.id}
             address={concert._embedded.venues[0].city.name}
             date={concert.dates.start.localDate}
-            price_min={concert.priceRanges[0].min}
-            price_max={concert.priceRanges[0].max}
+            // price_min={concert.priceRanges[0].min}
+            // price_max={concert.priceRanges[0].max}
             time={concert.dates.start.localTime}
             url={concert.url}
             image={concert.images[0].url}

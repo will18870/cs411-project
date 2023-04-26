@@ -47,9 +47,10 @@ async function getFavArtists() {
       // 如果响应状态不是 200 OK，则抛出一个错误
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const text = await response;
-    window.console.log(text)
-    return text;
+
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : ""
+    return data;
   } catch (error) {
     console.error(error);
     window.console.log({ _embedded: { events: [] } })

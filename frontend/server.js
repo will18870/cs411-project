@@ -55,7 +55,7 @@ app.get('/getConcerts*', (req, res) => {
             concerts += "] } }"
             concerts = JSON.parse(concerts)
             // console.log(info)
-            res.json(concerts)
+            res.json(concerts._embedded.events)
         }
     })
 
@@ -71,36 +71,42 @@ app.get('/getTopArtists*', (req, res) => {
         }
     }
 
-    let artists = []
-    request('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=3', options, function (error, response, body) {
+    let artists = ' { "artists":['
+    request('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10', options, function (error, response, body) {
         if (!error) {
             let info = JSON.parse(body)
             // console.log(info.items)
             // res.json(info)
 
             for (let i = 0; i < info.items.length; i++) {
-                artists.push(info.items[i].name)
+
+                if (i != 0) {artists += ","}
+                artists += '{ "artist":"' + info.items[i].name + '"}'
+
             }
 
+            artists += '] }'
+            JSON.parse(artists)
             console.log(artists)
-            res.send(artists)
+            res.json(artists)
 
             // console.log(concerts)
             // res.json(concerts)
 
             // let concerts = "{ \"_embedded\":{ \"events\":["
-            // for (let i = 0; i < artists.length; i++) {
+            // for (let i = 0; i < 2; i++) {
             //     let prev = ""
             //     request('https://app.ticketmaster.com/discovery/v2/events.json?segmentId=KZFzniwnSyZfZ7v7nJ&keyword=' + artists[i] + '&size=5&apikey=' + tmKey, function (error, response, body) {
             //         if (!error) {
             //             let info = JSON.parse(body)
-            //             console.log(info)
+            //             // console.log(info)
             //             if (!info) {
             //                 let events = info._embedded.events
             //                 for (let j = 0; j < events.length; j++) {
             //                     if (prev == events[j].name) {
             //                         continue
             //                     }
+            //                     if (i != 0) {concerts += ","}
             //                     prev = events[j].name
             //                     concerts += JSON.stringify(events[j])
             //                 }
@@ -108,10 +114,16 @@ app.get('/getTopArtists*', (req, res) => {
             //         }
             //     })
             // }
+            //
+            // concerts += "] } } "
+            // JSON.parse(concerts)
+            // console.log(concerts)
+            // res.json(concerts)
+
 
         } else {
             console.log("error!")
-
+            res.send("")
         }
     })
     console.log("getting top artists...")
