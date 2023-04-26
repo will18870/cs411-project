@@ -20,7 +20,7 @@ const pagesData: routerType[] = [
   },
   {
     path: "/Concert/:id",
-    element: <SingleConcert />,
+    element: <SingleConcert/>,
     title: "Concert",
   },
   {

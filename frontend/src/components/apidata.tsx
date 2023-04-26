@@ -64,6 +64,7 @@ interface SearchParams {
   postalCode?: string;
   keyword?: string;
   classificationName?: string;
+  id?: string;
 }
 
 async function ConcertSearch(key: string) {
@@ -73,12 +74,12 @@ async function ConcertSearch(key: string) {
     apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
     keyword: key,
     classificationName: "music",
- 
+
   };
 
   try {
     const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
-    console.log(`${url}?${new URLSearchParams({ ...params })}`);
+    // console.log(`${url}?${new URLSearchParams({ ...params })}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -93,12 +94,32 @@ async function ConcertSearch(key: string) {
         eventlist.push(list[i]);
       }
     }
-    return eventlist;
+    return eventlist.slice(0, 6);
   } catch (error) {
     console.error(error);
     // return { _embedded: { events: [] } };
   }
 }
 
+async function IdSearch(key: string) {
+  const url = "https://app.ticketmaster.com//discovery/v2/events.json"
+  let params: SearchParams = {
+    apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
+    id: key,
+  };
 
-export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch };
+  try {
+    const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
+    console.log(`${url}?${new URLSearchParams({ ...params })}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
+    let list = data._embedded.events;
+    return list[0];
+  } catch (error) {
+    console.error(error);
+  }
+}
+export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch, IdSearch };

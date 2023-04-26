@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <>
     <div className="flex flex-col-reverse">
-      <footer className="pt-24 flex flex-row mb-16 sm:text-xl lg:text-4xl">
+      <footer className="pt-24 flex flex-row mb-16 sm:text-xl lg:text-2xl">
         <p className="ml-16 w-1/2 font-medium ">&copy; 2023 CS411 Class Project - Boston University</p>
         <div className="w-screen sm:pl-32 lg:pl-96">
           <div className="flex justify-evenly border-s-violet-50 font-medium  " >

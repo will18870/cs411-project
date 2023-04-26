@@ -6,7 +6,7 @@ function Dash() {
 
   async function fetchConcerts() {
     try {
-      const rawdata = await ConcertSearch("New York", "10001");
+      const rawdata = await ConcertSearch("New York");
       console.log(rawdata);
       setConcerts(rawdata ?? []);
     } catch (error) {

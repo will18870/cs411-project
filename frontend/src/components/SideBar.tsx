@@ -8,7 +8,7 @@ function Sidebar() {
   return (
     <div className="fixed w-64 h-full shadow pt-8  bg-neutral-100">
       <nav className="mt-36 ">
-        <ul className="text-3xl font-semibold text-neutral-900">
+        <ul className="text-2xl font-semibold text-neutral-900">
           <li className="hover:shadow-md hover:bg-spotify py-4 tracking-wide">
             <Link to="/Dash" className="pl-20 ">Homepage</Link>
           </li>
