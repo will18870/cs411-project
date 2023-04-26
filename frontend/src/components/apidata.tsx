@@ -50,6 +50,7 @@ async function getFavArtists() {
 
     const text = await response.text();
     const data = text ? JSON.parse(text) : ""
+    window.console.log(data)
     return data;
   } catch (error) {
     console.error(error);
@@ -59,7 +60,7 @@ async function getFavArtists() {
 }
 
 function GetArtistjson(id: string) {
-  // const id = '2QcZxAgcs2I1q7CtCkl6MI'; 
+  // const id = '2QcZxAgcs2I1q7CtCkl6MI';
   const apiUrl = `https://api.spotify.com/v1/artists/${id}`;
   return getjson(apiUrl);
   {/* <p>{artist.followers.total}</p> */ }
@@ -109,7 +110,7 @@ async function ConcertSearch(key: string = "Boston") {
     }
     const text = await response.text();
     const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
-    window.console.log(data)
+    // window.console.log(data)
     return data;
   } catch (error) {
     console.error(error);

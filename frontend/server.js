@@ -34,7 +34,9 @@ app.get('/getConcerts*', (req, res) => {
             let info = JSON.parse(body)
             // console.log(info)
             if (info.page.totalElements == 0) {
-                return ""
+                const empty = "{ \"_embedded\":{ \"events\":[] } }"
+                res.json(JSON.parse(empty)._embedded.events)
+                return
             }
 
             let concerts = "{ \"_embedded\":{ \"events\":["
@@ -56,7 +58,11 @@ app.get('/getConcerts*', (req, res) => {
             concerts = JSON.parse(concerts)
             // console.log(info)
             res.json(concerts._embedded.events)
+            console.log("getting concerts...")
+            return
         }
+        const empty = "{ \"_embedded\":{ \"events\":[] } }"
+        res.json(JSON.parse(empty)._embedded.events)
     })
 
     console.log("getting concerts...")
@@ -77,6 +83,11 @@ app.get('/getTopArtists*', (req, res) => {
             let info = JSON.parse(body)
             // console.log(info.items)
             // res.json(info)
+            if(!info.items.length) {
+                artists += '] }'
+                res.json(artists)
+                return
+            }
 
             for (let i = 0; i < info.items.length; i++) {
 

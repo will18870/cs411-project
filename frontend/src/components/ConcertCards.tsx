@@ -4,28 +4,6 @@ import axios from 'axios';
 import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
 import { ConcertSearch, getFavArtists } from "./apidata"
-
-async function filterUniqueEvents(key: string): Promise<any[]> {
-  const events = await ConcertSearch(key);
-  // const uniqueEvents = events.filter((event: { name: any; }, index: any, self: any[]) =>
-  //   index === self.findIndex((e: { name: any; }) => e.name === event.name)
-  // );
-  //
-  // for (let i = 0; i < uniqueEvents.length - 1; i++) {
-  //   if (uniqueEvents[i].name === uniqueEvents[i + 1].name) {
-  //     uniqueEvents.splice(i, 1);
-  //     i--;
-  //   }
-  // }
-  //
-  // console.log('eventList:1', uniqueEvents[1]);
-  // console.log('eventList:6', uniqueEvents[6]);
-  // return uniqueEvents;
-
-  return events
-}
-
-
 function ConcertCards() {
 
     const [eventlist, setEventlist] = useState<any[]>([]);
@@ -33,29 +11,53 @@ function ConcertCards() {
     useEffect(() => {
         async function fetchData() {
             const data = await getFavArtists()
-            const artists = JSON.parse(data)
-            window.console.log(artists.artists.length)
-
-            while(!artists) {
-                console.log("waiting")
-                continue
+            if (!data) {
+                const thing = await ConcertSearch("Boston")
+                setEventlist(thing)
+                return
             }
 
-            // let result = []
-            // for (let i = 0; i < artists.artists.length; i++) {
-            //     let event = await ConcertSearch(artists.artists[i].artist)
-            //     for (let j = 0; j < event.length; j++) {
-            //         result.push(event[j])
-            //     }
-            // }
-            // window.console.log(result)
-            // setEventlist(result)
 
-            const thing = await ConcertSearch(artists.artists[2].artist)
-            setEventlist(thing)
+            const artists = JSON.parse(data)
+
+            window.console.log(artists.artists[2].artist)
+
+            // while(!artists) {
+            //     console.log("waiting")
+            //     continue
+            // }
+
+            let result = []
+            window.console.log(artists.artists.length)
+            for (let i = 0; i < artists.artists.length; i++) {
+                const event = await ConcertSearch(artists.artists[i].artist)
+                if(event)
+                    result.push(...event)
+            }
+
+            if (result.length == 0) {
+                const thing = await ConcertSearch("Boston")
+                result.push(...thing)
+            }
+            // window.console.log(result)
+            setEventlist(result)
+
+            // const other = await ConcertSearch("Boston")
+            // const thing = await ConcertSearch(artists.artists[0].artist)
+            // window.console.log(thing)
+            // setEventlist(thing.concat(other))
 
             // const artists = await getFavArtists()
             // window.console.log(artists)
+
+            // const promises = artists.artists.map(async (artist) => {
+            //     return await ConcertSearch(artist.artist);
+            // });
+            //
+            // const eventLists = await Promise.all(promises);
+            //
+            // const result = eventLists.flat();
+            // setEventlist(result);
         }
 
         fetchData();
@@ -80,6 +82,8 @@ function ConcertCards() {
             date={concert.dates.start.localDate}
             // price_min={concert.priceRanges[0].min}
             // price_max={concert.priceRanges[0].max}
+              price_min={"test"}
+              price_max={"test"}
             time={concert.dates.start.localTime}
             url={concert.url}
             image={concert.images[0].url}

@@ -19,7 +19,7 @@ const pagesData: routerType[] = [
     title: "Dash-SearchDash",
   },
   {
-    path: "/Concert/:id",
+    path: "/Concert/:id/:name/:address/:date/:time/:genre/:url",
     element: <SingleConcert />,
     title: "Concert",
   },

@@ -5,19 +5,26 @@ import { useParams } from "react-router-dom";
 import concertsData from '../../datas/Concertdata.json';
 
 export default function SingleConcert() {
-    const { id } = useParams();
-    const concert = concertsData.concerts.find((concert: { id: string | undefined; }) => concert.id === id);
-    if (!concert) {
-        return <div>Concert not found</div>;
+    const { id, title,address,date,time,genre, urlR } = useParams();
+    // const concert = concertsData.concerts.find((concert: { id: string | undefined; }) => concert.id === id);
+    // if (!concert) {
+    //     return <div>Concert not found</div>;
+    // }
+    // const { artist, description, color } = concert || {};
+    let url = ""
+
+    if (urlR != undefined) {
+        url = urlR.replaceAll("~", "/")
     }
-    const { artist, title, image, description, color, address, date, time, price, url, genre } = concert || {};
+    window.console.log(url)
+    window.console.log(urlR)
     return (
         <div className="h-max">
             <div className="ml-56 ">
                 <div className='ml-16'>
                     <div className="flex flex-col md:flex-row pt-24 select-none bg-gradient-to-tr">
                         <img
-                            src={image}
+                            src={"image"}
                             alt=""
                             className="object-cover xl:w-144 xl:h-144 lg:w-64 lg:h-64 md:h-64 md:w-64 sm:w-48 sm:h-48 drop-shadow-2xl aspect-square rounded-xl"
                         />
@@ -27,7 +34,7 @@ export default function SingleConcert() {
                                 {title}
                             </p>
                             <h1 className="text-2xl font-extrabold">
-                                {artist}
+                                {"artist"}
                             </h1>
                             <button className="mt-4 border-2 border-black rounded-xl p-3 font-extrabold hover:bg-spotify hover:text-white w-24 content-center" >FOLLOW</button>
                         </div>
@@ -37,7 +44,7 @@ export default function SingleConcert() {
                         <div>
                             <p className="mt-8 text-4xl font-semibold">About</p>
                             <p className="mt-4 pr-12">
-                                {description}
+                                {"description"}
                             </p>
                             <h2 className="mt-8 text-4xl font-semibold">Address</h2>
                             <p className="mt-2">

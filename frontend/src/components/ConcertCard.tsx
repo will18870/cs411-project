@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 function ConcertCard(props: ConcertType) {
 
-  const { name, id, address, date, image } = props;
+  const { name, id, address, date, image, time, url, genre } = props;
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/Dash/Concert/${id}`);
+    navigate(`/Dash/Concert/${id}/${name}/${address}/${date}/${time}/${genre}/${url.replaceAll("/", "~")}`);
   };
 
   return (
