@@ -66,13 +66,14 @@ interface SearchParams {
   classificationName?: string;
 }
 
-async function ConcertSearch(key: string ) {
+async function ConcertSearch(key: string) {
   // Set the API endpoint and parameters
   const url = "https://app.ticketmaster.com/discovery/v2/events.json";
   let params: SearchParams = {
     apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
     keyword: key,
     classificationName: "music",
+ 
   };
 
   try {
@@ -92,7 +93,7 @@ async function ConcertSearch(key: string ) {
         eventlist.push(list[i]);
       }
     }
-    return eventlist.slice(0, 10);
+    return eventlist;
   } catch (error) {
     console.error(error);
     // return { _embedded: { events: [] } };

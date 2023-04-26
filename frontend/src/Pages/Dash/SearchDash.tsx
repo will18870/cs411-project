@@ -8,7 +8,7 @@ import DashTopbar from '../../components/Topbar';
 const GenreCard: React.FC<GenreCardProps> = ({ title }) => {
     return (
         <div className="rounded-xl shadow-lg bg-spotify aspect-square ">
-            <p className="text-4xl font-bold ml-4 pt-6 text-black placeholder-black">{title}</p>
+            <p className="text-5xl font-semibold ml-4 pt-6 text-black placeholder-black">{title}</p>
         </div>
     );
 };
@@ -16,16 +16,16 @@ const GenreCard: React.FC<GenreCardProps> = ({ title }) => {
 export default function SearchDash() {
 
     return (
-        <div className='bg-neutral-800'>
+        <div className='bg-neutral-100'>
             <Sidebar />
             <div className="ml-56">
                 <DashTopbar />
 
                 <div className="ml-16">
-                    <p className='text-white text-8xl font-bold truncate pt-24 border-b-4 border-white'>Explore All</p>
+                    <p className='text-neutral-900 text-8xl font-bold truncate pt-24 border-b-4 border-neutral-900'>Explore All</p>
 
                     <div className=" pt-12 pr-8">
-                        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 truncate" >
+                        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 truncate" >
                             {Genre.map((genre: GenreCardProps) => (
                                 <Link to={`/Dash/genre/${genre.title}`} key={genre.title}>
                                     <GenreCard
