@@ -43,29 +43,44 @@ function GetGenrejson(id: string) {
   return getjson(apiUrl);
 }
 
+
+
+interface Event {
+  name: string;
+  url: string;
+  dates: {
+    start: {
+      dateTime: string;
+    };
+  };
+  _embedded: {
+    venues: {
+      name: string;
+    }[];
+  };
+}
 interface SearchParams {
   apikey: string;
   postalCode?: string;
   keyword?: string;
 }
 
-async function ConcertSearch(key: string,postalCode:string) {
+async function ConcertSearch(key: string ) {
+  // Set the API endpoint and parameters
   const url = "https://app.ticketmaster.com/discovery/v2/events.json";
   let params: SearchParams = {
     apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
     keyword: key,
-    postalCode: postalCode,
   };
 
   try {
     const response = await fetch(`${url}?${new URLSearchParams({ ...params })}`);
-    // console.log(`${url}?${new URLSearchParams({ ...params })}`);
+    console.log(`${url}?${new URLSearchParams({ ...params })}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const text = await response.text();
     const data = text ? JSON.parse(text) : { _embedded: { events: [] } };
-    console.log(data);
     let list = data._embedded.events;
     let eventlist = [];
     let seen = new Set();
@@ -78,6 +93,7 @@ async function ConcertSearch(key: string,postalCode:string) {
     return eventlist.slice(0, 3);
   } catch (error) {
     console.error(error);
+    // return { _embedded: { events: [] } };
   }
 }
 

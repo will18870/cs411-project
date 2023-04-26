@@ -58,7 +58,7 @@ if (!concert) {
                     </div>
                     <div>
                         <h2 className="mt-8 text-4xl font-semibold">Similiar Event</h2>
-                        <ConcertCards searchindex="" postalcode='02215'/>
+                        <ConcertCards searchindex='02215'/>
                        
                     </div>
                     
