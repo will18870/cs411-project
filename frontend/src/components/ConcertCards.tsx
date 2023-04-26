@@ -21,7 +21,8 @@ function ConcertCards(props: index) {
 
   return (
     <>
-      <div className="flex felx-row mt-6 truncate  overflow-x-auto mr-8">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+      xl:grid-cols-4 2xl:grid-cols-5 max:grid-cols-6 gap-6 mt-6 mr-8 ">
         {eventlist.map((concert: any) => (
           <ConcertCard
             key={concert.id}

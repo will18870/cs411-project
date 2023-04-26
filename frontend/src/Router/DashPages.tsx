@@ -40,7 +40,8 @@ const Dash: React.FC = (): JSX.Element => {
     <Route key={path} path={`/${path}`} element={element} />
   ));
 
-  return (<Routes>{pageRoutes}</Routes>);
+  return (<Routes>
+    {pageRoutes}</Routes>);
 };
 
 export default Dash;

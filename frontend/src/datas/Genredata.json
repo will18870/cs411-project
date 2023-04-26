@@ -1,758 +1,234 @@
 [
-  {
-      "title": "Acoustic",
-      "image": "acoustic.jpg",
-      "description": "This is the description of acoustic.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Afrobeat",
-      "image": "afrobeat.jpg",
-      "description": "This is the description of afrobeat.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Alt-Rock",
-      "image": "alt-rock.jpg",
-      "description": "This is the description of alt-rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Alternative",
-      "image": "alternative.jpg",
-      "description": "This is the description of alternative.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Ambient",
-      "image": "ambient.jpg",
-      "description": "This is the description of ambient.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Anime",
-      "image": "anime.jpg",
-      "description": "This is the description of anime.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Black-Metal",
-      "image": "black-metal.jpg",
-      "description": "This is the description of black-metal.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Bluegrass",
-      "image": "bluegrass.jpg",
-      "description": "This is the description of bluegrass.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Blues",
-      "image": "blues.jpg",
-      "description": "This is the description of blues.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Bossanova",
-      "image": "bossanova.jpg",
-      "description": "This is the description of bossanova.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Brazil",
-      "image": "brazil.jpg",
-      "description": "This is the description of brazil.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Breakbeat",
-      "image": "breakbeat.jpg",
-      "description": "This is the description of breakbeat.",
-      "color": "lime-600"
-  },
-  {
-      "title": "British",
-      "image": "british.jpg",
-      "description": "This is the description of british.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Cantopop",
-      "image": "cantopop.jpg",
-      "description": "This is the description of cantopop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Chicago-House",
-      "image": "chicago-house.jpg",
-      "description": "This is the description of chicago-house.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Children",
-      "image": "children.jpg",
-      "description": "This is the description of children.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Chill",
-      "image": "chill.jpg",
-      "description": "This is the description of chill.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Classical",
-      "image": "classical.jpg",
-      "description": "This is the description of classical.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Club",
-      "image": "club.jpg",
-      "description": "This is the description of club.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Comedy",
-      "image": "comedy.jpg",
-      "description": "This is the description of comedy.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Country",
-      "image": "country.jpg",
-      "description": "This is the description of country.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Dance",
-      "image": "dance.jpg",
-      "description": "This is the description of dance.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Dancehall",
-      "image": "dancehall.jpg",
-      "description": "This is the description of dancehall.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Death-Metal",
-      "image": "death-metal.jpg",
-      "description": "This is the description of death-metal.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Deep-House",
-      "image": "deep-house.jpg",
-      "description": "This is the description of deep-house.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Detroit-Techno",
-      "image": "detroit-techno.jpg",
-      "description": "This is the description of detroit-techno.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Disco",
-      "image": "disco.jpg",
-      "description": "This is the description of disco.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Disney",
-      "image": "disney.jpg",
-      "description": "This is the description of disney.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Drum-And-Bass",
-      "image": "drum-and-bass.jpg",
-      "description": "This is the description of drum-and-bass.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Dub",
-      "image": "dub.jpg",
-      "description": "This is the description of dub.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Dubstep",
-      "image": "dubstep.jpg",
-      "description": "This is the description of dubstep.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Edm",
-      "image": "edm.jpg",
-      "description": "This is the description of edm.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Electro",
-      "image": "electro.jpg",
-      "description": "This is the description of electro.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Electronic",
-      "image": "electronic.jpg",
-      "description": "This is the description of electronic.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Emo",
-      "image": "emo.jpg",
-      "description": "This is the description of emo.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Folk",
-      "image": "folk.jpg",
-      "description": "This is the description of folk.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Forro",
-      "image": "forro.jpg",
-      "description": "This is the description of forro.",
-      "color": "lime-600"
-  },
-  {
-      "title": "French",
-      "image": "french.jpg",
-      "description": "This is the description of french.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Funk",
-      "image": "funk.jpg",
-      "description": "This is the description of funk.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Garage",
-      "image": "garage.jpg",
-      "description": "This is the description of garage.",
-      "color": "lime-600"
-  },
-  {
-      "title": "German",
-      "image": "german.jpg",
-      "description": "This is the description of german.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Gospel",
-      "image": "gospel.jpg",
-      "description": "This is the description of gospel.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Goth",
-      "image": "goth.jpg",
-      "description": "This is the description of goth.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Grindcore",
-      "image": "grindcore.jpg",
-      "description": "This is the description of grindcore.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Groove",
-      "image": "groove.jpg",
-      "description": "This is the description of groove.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Grunge",
-      "image": "grunge.jpg",
-      "description": "This is the description of grunge.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Guitar",
-      "image": "guitar.jpg",
-      "description": "This is the description of guitar.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Happy",
-      "image": "happy.jpg",
-      "description": "This is the description of happy.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Hard-Rock",
-      "image": "hard-rock.jpg",
-      "description": "This is the description of hard-rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Hardcore",
-      "image": "hardcore.jpg",
-      "description": "This is the description of hardcore.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Hardstyle",
-      "image": "hardstyle.jpg",
-      "description": "This is the description of hardstyle.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Heavy-Metal",
-      "image": "heavy-metal.jpg",
-      "description": "This is the description of heavy-metal.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Hip-Hop",
-      "image": "hip-hop.jpg",
-      "description": "This is the description of hip-hop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Holidays",
-      "image": "holidays.jpg",
-      "description": "This is the description of holidays.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Honky-Tonk",
-      "image": "honky-tonk.jpg",
-      "description": "This is the description of honky-tonk.",
-      "color": "lime-600"
-  },
-  {
-      "title": "House",
-      "image": "house.jpg",
-      "description": "This is the description of house.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Idm",
-      "image": "idm.jpg",
-      "description": "This is the description of idm.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Indian",
-      "image": "indian.jpg",
-      "description": "This is the description of indian.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Indie",
-      "image": "indie.jpg",
-      "description": "This is the description of indie.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Indie-Pop",
-      "image": "indie-pop.jpg",
-      "description": "This is the description of indie-pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Industrial",
-      "image": "industrial.jpg",
-      "description": "This is the description of industrial.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Iranian",
-      "image": "iranian.jpg",
-      "description": "This is the description of iranian.",
-      "color": "lime-600"
-  },
-  {
-      "title": "J-Dance",
-      "image": "j-dance.jpg",
-      "description": "This is the description of j-dance.",
-      "color": "lime-600"
-  },
-  {
-      "title": "J-Idol",
-      "image": "j-idol.jpg",
-      "description": "This is the description of j-idol.",
-      "color": "lime-600"
-  },
-  {
-      "title": "J-Pop",
-      "image": "j-pop.jpg",
-      "description": "This is the description of j-pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "J-Rock",
-      "image": "j-rock.jpg",
-      "description": "This is the description of j-rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Jazz",
-      "image": "jazz.jpg",
-      "description": "This is the description of jazz.",
-      "color": "lime-600"
-  },
-  {
-      "title": "K-Pop",
-      "image": "k-pop.jpg",
-      "description": "This is the description of k-pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Kids",
-      "image": "kids.jpg",
-      "description": "This is the description of kids.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Latin",
-      "image": "latin.jpg",
-      "description": "This is the description of latin.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Latino",
-      "image": "latino.jpg",
-      "description": "This is the description of latino.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Malay",
-      "image": "malay.jpg",
-      "description": "This is the description of malay.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Mandopop",
-      "image": "mandopop.jpg",
-      "description": "This is the description of mandopop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Metal",
-      "image": "metal.jpg",
-      "description": "This is the description of metal.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Metal-Misc",
-      "image": "metal-misc.jpg",
-      "description": "This is the description of metal-misc.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Metalcore",
-      "image": "metalcore.jpg",
-      "description": "This is the description of metalcore.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Minimal-Techno",
-      "image": "minimal-techno.jpg",
-      "description": "This is the description of minimal-techno.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Movies",
-      "image": "movies.jpg",
-      "description": "This is the description of movies.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Mpb",
-      "image": "mpb.jpg",
-      "description": "This is the description of mpb.",
-      "color": "lime-600"
-  },
-  {
-      "title": "New-Age",
-      "image": "new-age.jpg",
-      "description": "This is the description of new-age.",
-      "color": "lime-600"
-  },
-  {
-      "title": "New-Release",
-      "image": "new-release.jpg",
-      "description": "This is the description of new-release.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Opera",
-      "image": "opera.jpg",
-      "description": "This is the description of opera.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Pagode",
-      "image": "pagode.jpg",
-      "description": "This is the description of pagode.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Party",
-      "image": "party.jpg",
-      "description": "This is the description of party.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Philippines-Opm",
-      "image": "philippines-opm.jpg",
-      "description": "This is the description of philippines-opm.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Piano",
-      "image": "piano.jpg",
-      "description": "This is the description of piano.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Pop",
-      "image": "pop.jpg",
-      "description": "This is the description of pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Pop-Film",
-      "image": "pop-film.jpg",
-      "description": "This is the description of pop-film.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Post-Dubstep",
-      "image": "post-dubstep.jpg",
-      "description": "This is the description of post-dubstep.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Power-Pop",
-      "image": "power-pop.jpg",
-      "description": "This is the description of power-pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Progressive-House",
-      "image": "progressive-house.jpg",
-      "description": "This is the description of progressive-house.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Psych-Rock",
-      "image": "psych-rock.jpg",
-      "description": "This is the description of psych-rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Punk",
-      "image": "punk.jpg",
-      "description": "This is the description of punk.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Punk-Rock",
-      "image": "punk-rock.jpg",
-      "description": "This is the description of punk-rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "R-N-B",
-      "image": "r-n-b.jpg",
-      "description": "This is the description of r-n-b.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Rainy-Day",
-      "image": "rainy-day.jpg",
-      "description": "This is the description of rainy-day.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Reggae",
-      "image": "reggae.jpg",
-      "description": "This is the description of reggae.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Reggaeton",
-      "image": "reggaeton.jpg",
-      "description": "This is the description of reggaeton.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Road-Trip",
-      "image": "road-trip.jpg",
-      "description": "This is the description of road-trip.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Rock",
-      "image": "rock.jpg",
-      "description": "This is the description of rock.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Rock-N-Roll",
-      "image": "rock-n-roll.jpg",
-      "description": "This is the description of rock-n-roll.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Rockabilly",
-      "image": "rockabilly.jpg",
-      "description": "This is the description of rockabilly.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Romance",
-      "image": "romance.jpg",
-      "description": "This is the description of romance.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Sad",
-      "image": "sad.jpg",
-      "description": "This is the description of sad.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Salsa",
-      "image": "salsa.jpg",
-      "description": "This is the description of salsa.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Samba",
-      "image": "samba.jpg",
-      "description": "This is the description of samba.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Sertanejo",
-      "image": "sertanejo.jpg",
-      "description": "This is the description of sertanejo.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Show-Tunes",
-      "image": "show-tunes.jpg",
-      "description": "This is the description of show-tunes.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Singer-Songwriter",
-      "image": "singer-songwriter.jpg",
-      "description": "This is the description of singer-songwriter.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Ska",
-      "image": "ska.jpg",
-      "description": "This is the description of ska.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Sleep",
-      "image": "sleep.jpg",
-      "description": "This is the description of sleep.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Songwriter",
-      "image": "songwriter.jpg",
-      "description": "This is the description of songwriter.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Soul",
-      "image": "soul.jpg",
-      "description": "This is the description of soul.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Soundtracks",
-      "image": "soundtracks.jpg",
-      "description": "This is the description of soundtracks.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Spanish",
-      "image": "spanish.jpg",
-      "description": "This is the description of spanish.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Study",
-      "image": "study.jpg",
-      "description": "This is the description of study.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Summer",
-      "image": "summer.jpg",
-      "description": "This is the description of summer.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Swedish",
-      "image": "swedish.jpg",
-      "description": "This is the description of swedish.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Synth-Pop",
-      "image": "synth-pop.jpg",
-      "description": "This is the description of synth-pop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Tango",
-      "image": "tango.jpg",
-      "description": "This is the description of tango.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Techno",
-      "image": "techno.jpg",
-      "description": "This is the description of techno.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Trance",
-      "image": "trance.jpg",
-      "description": "This is the description of trance.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Trip-Hop",
-      "image": "trip-hop.jpg",
-      "description": "This is the description of trip-hop.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Turkish",
-      "image": "turkish.jpg",
-      "description": "This is the description of turkish.",
-      "color": "lime-600"
-  },
-  {
-      "title": "Work-Out",
-      "image": "work-out.jpg",
-      "description": "This is the description of work-out.",
-      "color": "lime-600"
-  },
-  {
-      "title": "World-Music",
-      "image": "world-music.jpg",
-      "description": "This is the description of world-music.",
-      "color": "lime-600"
-  }
+
+    {
+        "title": "Ambient",
+        "image": "ambient.jpg",
+        "description": "This is the description of ambient.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Blues",
+        "image": "blues.jpg",
+        "description": "This is the description of blues.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Chill",
+        "image": "chill.jpg",
+        "description": "This is the description of chill.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Classical",
+        "image": "classical.jpg",
+        "description": "This is the description of classical.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Club",
+        "image": "club.jpg",
+        "description": "This is the description of club.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Comedy",
+        "image": "comedy.jpg",
+        "description": "This is the description of comedy.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Country",
+        "image": "country.jpg",
+        "description": "This is the description of country.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Electro",
+        "image": "electro.jpg",
+        "description": "This is the description of electro.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Electronic",
+        "image": "electronic.jpg",
+        "description": "This is the description of electronic.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Emo",
+        "image": "emo.jpg",
+        "description": "This is the description of emo.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Folk",
+        "image": "folk.jpg",
+        "description": "This is the description of folk.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Funk",
+        "image": "funk.jpg",
+        "description": "This is the description of funk.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Garage",
+        "image": "garage.jpg",
+        "description": "This is the description of garage.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Goth",
+        "image": "goth.jpg",
+        "description": "This is the description of goth.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Hip-Hop",
+        "image": "hip-hop.jpg",
+        "description": "This is the description of hip-hop.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Holidays",
+        "image": "holidays.jpg",
+        "description": "This is the description of holidays.",
+        "color": "lime-600"
+    },
+    {
+        "title": "House",
+        "image": "house.jpg",
+        "description": "This is the description of house.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Indie",
+        "image": "indie.jpg",
+        "description": "This is the description of indie.",
+        "color": "lime-600"
+    },
+ 
+    {
+        "title": "Industrial",
+        "image": "industrial.jpg",
+        "description": "This is the description of industrial.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Jazz",
+        "image": "jazz.jpg",
+        "description": "This is the description of jazz.",
+        "color": "lime-600"
+    },
+    {
+        "title": "K-Pop",
+        "image": "k-pop.jpg",
+        "description": "This is the description of k-pop.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Kids",
+        "image": "kids.jpg",
+        "description": "This is the description of kids.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Latin",
+        "image": "latin.jpg",
+        "description": "This is the description of latin.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Metal",
+        "image": "metal.jpg",
+        "description": "This is the description of metal.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Party",
+        "image": "party.jpg",
+        "description": "This is the description of party.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Piano",
+        "image": "piano.jpg",
+        "description": "This is the description of piano.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Pop",
+        "image": "pop.jpg",
+        "description": "This is the description of pop.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Punk",
+        "image": "punk.jpg",
+        "description": "This is the description of punk.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Punk-Rock",
+        "image": "punk-rock.jpg",
+        "description": "This is the description of punk-rock.",
+        "color": "lime-600"
+    },
+    {
+        "title": "R-N-B",
+        "image": "r-n-b.jpg",
+        "description": "This is the description of r-n-b.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Road-Trip",
+        "image": "road-trip.jpg",
+        "description": "This is the description of road-trip.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Rock",
+        "image": "rock.jpg",
+        "description": "This is the description of rock.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Romance",
+        "image": "romance.jpg",
+        "description": "This is the description of romance.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Songwriter",
+        "image": "songwriter.jpg",
+        "description": "This is the description of songwriter.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Soul",
+        "image": "soul.jpg",
+        "description": "This is the description of soul.",
+        "color": "lime-600"
+    },
+    {
+        "title": "Study",
+        "image": "study.jpg",
+        "description": "This is the description of study.",
+        "color": "lime-600"
+    },
+
+    {
+        "title": "Tango",
+        "image": "tango.jpg",
+        "description": "This is the description of tango.",
+        "color": "lime-600"
+    }
 ]

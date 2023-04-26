@@ -63,6 +63,7 @@ interface SearchParams {
   apikey: string;
   postalCode?: string;
   keyword?: string;
+  classificationName?: string;
 }
 
 async function ConcertSearch(key: string ) {
@@ -71,6 +72,7 @@ async function ConcertSearch(key: string ) {
   let params: SearchParams = {
     apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",
     keyword: key,
+    classificationName: "music",
   };
 
   try {
@@ -90,7 +92,7 @@ async function ConcertSearch(key: string ) {
         eventlist.push(list[i]);
       }
     }
-    return eventlist.slice(0, 3);
+    return eventlist.slice(0, 10);
   } catch (error) {
     console.error(error);
     // return { _embedded: { events: [] } };
