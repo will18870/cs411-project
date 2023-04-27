@@ -1,7 +1,7 @@
-import Sidebar from "./SideBar";
-import Footer from './Footer';
+import Sidebar from "../../components/SideBar";
+import Footer from '../../components/Footer';
 import { useParams } from 'react-router-dom';
-import ConcertCards from './ConcertCards';
+import ConcertCards from '../../components/ConcertCards';
 
 export default function SingleGenre() {
     const { title } = useParams();

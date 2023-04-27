@@ -44,21 +44,6 @@ function GetGenrejson(id: string) {
 }
 
 
-
-interface Event {
-  name: string;
-  url: string;
-  dates: {
-    start: {
-      dateTime: string;
-    };
-  };
-  _embedded: {
-    venues: {
-      name: string;
-    }[];
-  };
-}
 interface SearchParams {
   apikey: string;
   postalCode?: string;
@@ -68,7 +53,6 @@ interface SearchParams {
 }
 
 async function ConcertSearch(key: string) {
-  // Set the API endpoint and parameters
   const url = "https://app.ticketmaster.com/discovery/v2/events.json";
   let params: SearchParams = {
     apikey: "YgunowPBFuli9SnzQBiGkRGCD9Yf2RLM",

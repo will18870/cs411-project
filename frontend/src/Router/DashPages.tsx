@@ -5,7 +5,7 @@ import Recommend from "../components/Recommend";
 import SearchDash from "../Pages/Dash/SearchDash";
 import SingleConcert from "../Pages/Dash/SingleConcert";
 import Favourite from "../Pages/Dash/Favourite";
-import SingleGenre from "../components/SingleGenre";
+import SingleGenre from "../Pages/Dash/SingleGenre";
 
 const pagesData: routerType[] = [
   {
