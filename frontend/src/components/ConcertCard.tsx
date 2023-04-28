@@ -25,7 +25,7 @@ function ConcertCard(props: any) {
       <div className=" pb-24 mx-4 text-lg font-medium align-middle text-neutral-100 hover:text-white">
         <h2 className="font-bold text-xl truncate">{name}</h2>
         <p className="mt-2 ">{date}</p>
-        <p className="mt-2 ">{id}</p>
+        {/* <p className="mt-2 ">{id}</p> */}
       </div>
 
     </div>
