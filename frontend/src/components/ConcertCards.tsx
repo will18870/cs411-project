@@ -1,26 +1,89 @@
 import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
-import { ConcertSearch } from "./apidata"
+import { ConcertSearch, getUserFavs } from "./apidata"
 import { useEffect, useState } from "react";
 
 interface index {
   searchindex: string;
   num: number;
+  type: string;
 }
 
 function ConcertCards(props: index) {
-  const { searchindex ,num } = props;
+  const {searchindex ,num , type} = props;
   const [eventlist, setEventList] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchConcerts() {
-        const data = await ConcertSearch(searchindex);
-        const sliced = data?.slice(0, num);
-        setEventList(sliced ?? []);
+
+        if (type == "rec") {
+            const data = await getUserFavs("genres")
+            if (!data) {
+                const data = await ConcertSearch("Boston", "keyword")
+                const sliced = data?.slice(0, num);
+                setEventList(sliced ?? []);
+                return
+            }
+
+            const genres = JSON.parse(data)
+            let result = []
+            window.console.log(genres.genres.length)
+            for (let i = 0; i < genres.genres.length; i++) {
+                const event = await ConcertSearch(genres.genres[i].genre, "keyword")
+                if (event)
+                    result.push(...event)
+            }
+
+            if (result.length == 0) {
+
+            }
+            // window.console.log(result)
+            setEventList(result)
+            return
+        }
+
+        if (type == "artist") {
+            const data = await getUserFavs("artists")
+            if (!data) {
+                const data = await ConcertSearch("Boston", "keyword")
+                const sliced = data?.slice(0, num);
+                setEventList(sliced ?? []);
+                return
+            }
+
+            const artists = JSON.parse(data)
+            let result = []
+            window.console.log(artists.artists.length)
+            for (let i = 0; i < artists.artists.length; i++) {
+                const event = await ConcertSearch(artists.artists[i].artist, "keyword")
+                if(event)
+                    result.push(...event)
+            }
+
+            if (result.length == 0) {
+
+            }
+            // window.console.log(result)
+            setEventList(result)
+            return
+        } else {
+
+            const data = await ConcertSearch(searchindex, "keyword");
+            const sliced = data?.slice(0, num);
+            setEventList(sliced ?? []);
+        }
     
     }
     fetchConcerts();
   }, [searchindex]);
+
+  if (!eventlist) {
+      return (<div>Loading...</div>)
+  }
+
+    if (eventlist.length == 0) {
+        return (<div>No Concerts Found :(</div>)
+    }
 
   return (
     <>
