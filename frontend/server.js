@@ -83,15 +83,16 @@ app.get('/getTopArtists*', (req, res) => {
             let info = JSON.parse(body)
             // console.log(info.items)
             // res.json(info)
-            if(!info.items.length) {
+            if(info === undefined) {
                 artists += '] }'
+                JSON.parse(artists)
                 res.json(artists)
                 return
             }
 
             for (let i = 0; i < info.items.length; i++) {
 
-                if (i != 0) {artists += ","}
+                if (i > 0) {artists += ","}
                 artists += '{ "artist":"' + info.items[i].name + '"}'
 
             }
@@ -134,7 +135,9 @@ app.get('/getTopArtists*', (req, res) => {
 
         } else {
             console.log("error!")
-            res.send("")
+            artists += '] }'
+            JSON.parse(artists)
+            res.json(artists)
         }
     })
     console.log("getting top artists...")
