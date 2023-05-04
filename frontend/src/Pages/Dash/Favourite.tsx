@@ -1,11 +1,18 @@
 import DashTopbar from "../../components/Topbar"
+import Footer from "../../components/Footer"
+import ConcertCards from '../../components/ConcertCards';
 export default function Favourite() {
     return (
-        <div className="ml-64">
-            <DashTopbar/>
-            <div className="ml-6 mt-96">
-            <p className="font-semibold text-4xl text-black ">Favourite</p>
+        <div className="ml-64 bg-neutral-100 min-h-screen">
+            <DashTopbar />
+            <div className="ml-16 mt-12 ">
+                <p className="font-semibold text-5xl text-black ">Favourite</p>
+                <ConcertCards searchindex="kpop" num={1} type="" />
             </div>
+            <div className="bottom-component mt-auto">
+                <Footer />
+            </div>
+
         </div>
     )
 }

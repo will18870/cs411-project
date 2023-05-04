@@ -33,17 +33,20 @@ export default function SingleConcert() {
     return (
         <div className="h-max bg-neutral-100 ml-56 ">
 
-            <div className='ml-24  pt-24'>
-                <div className="flex flex-row">
+            <div className='ml-24  pt-24 truncate'>
+                <div className="grid grid-cols-1 xl:grid-cols-2 ">
+                    <div className=' w-full h-full ml-16'>
                     <img
                         src={image}
                         alt=""
-                        className="object-cover xl:w-144 xl:h-144 lg:w-1/2 lg:h-1/2 md:h-64 md:w-64 
-                            sm:w-64 sm:h-64 drop-shadow-2xl aspect-square rounded-xl bg-neutral-800 p-8"
+                        className="object-cover w-3/4
+                             drop-shadow-2xl aspect-square rounded-xl bg-neutral-800 p-8"
                     />
-                    <div className=' flex flex-col  border-slate-400  pl-16 lg:w-1/2 '>
+                    </div>
+                   
+                    <div className=' flex flex-col  border-slate-400  pl-16'>
                         <p className="xl:text-6xl lg:text-5xl md:text-4xl sm:text-2xl 
-                            font-semibold py-2 items-center  w-3/4 ">
+                            font-semibold py-2 items-center  w-3/4 sm:pt-24 lg:pt-0">
                             {name}
                         </p>
                         <div className='flex ' >
@@ -55,7 +58,7 @@ export default function SingleConcert() {
                             content-center text-md"
                                 onClick={() => window.open(url)} >Get Ticket</button>
                         </div>
-                        <table className="py-8 sm:w-3/4 md:w-3/4 mt-8 text-lg">
+                        <table className="py-8 w-full md:w-3/4 mt-8 text-lg truncate">
                             <tbody className="">
                                 <tr className="border-b border-neutral-300">
                                     <th className="text-left text-top pb-6 w-1/2 ">Date</th>
@@ -90,8 +93,8 @@ export default function SingleConcert() {
                 </div>
             </div>
             <div className='ml-16'>
-                <h2 className="mt-8 text-4xl font-semibold">Similiar Event</h2>
-                <ConcertCards searchindex='Boston' num={4} />
+                <h2 className="mt-24 text-4xl font-semibold">Similiar Event</h2>
+                <ConcertCards searchindex='Boston' num={4} type={''} />
 
             </div>
             <Footer />

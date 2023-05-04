@@ -57,11 +57,11 @@ async function getUserFavs(type: string) {
     return null
   }
   const token = localStorage.getItem('spotify_access_token');
-  let url = "http://localhost:5000/getTopArtists?token="
+  let url = "http://localhost:3000/getTopArtists?token="
   if (type == "artists") {
-    url = "http://localhost:5000/getTopArtists?token=" + token
+    url = "http://localhost:3000/getTopArtists?token=" + token
   } else if (type == "genres") {
-    url = "http://localhost:5000/getTopGenres?token=" + token
+    url = "http://localhost:3000/getTopGenres?token=" + token
   }
 
   try {
@@ -81,7 +81,7 @@ async function getUserFavs(type: string) {
   }
 }
 async function ConcertSearch(key: string, type: string) {
-  const url = "http://localhost:5000/getConcerts"
+  const url = "http://localhost:3000/getConcerts"
 
   let params: SearchParams = {};
   if (type == "keyword") {

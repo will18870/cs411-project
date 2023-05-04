@@ -82,7 +82,7 @@ function ConcertCards(props: index) {
   }
 
     if (eventlist.length == 0) {
-        return (<div>No Concerts Found :(</div>)
+        return (<div className="text-lg font-medium">No Concerts Found :(</div>)
     }
 
   return (

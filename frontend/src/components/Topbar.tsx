@@ -5,7 +5,7 @@ export default function DashTopbar() {
             <input
                 type="text"
                 // placeholder="Search for songs, artists, or albums"
-                className="bg-spotify text-4xl text-white rounded-lg py-6 pl-4 w-1/2 mt-4 "
+                className="bg-neutral-100 text-2xl text-black rounded-lg py-4 pl-4 w-1/2 mt-4 hover:drop-shadow-xl stroke-lime-500 border-4"
             />
         </div>
 

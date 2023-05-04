@@ -161,7 +161,7 @@ app.get('/getTopGenres*', (req, res) => {
 })
 
 
-const { PORT = 5000 } = process.env;
+const { PORT = 3000 } = process.env;
 app.listen(PORT, () => {
     console.log();
     console.log(`  App running in port ${PORT}`);
