@@ -3,12 +3,16 @@ import path from "path";
 import fs from "fs";
 import request from "request";
 import bodyParser from "body-parser"
+import multer from "multer"
+let upload = multer();
 const app = express();
 
-import MongoClient from "mongodb";
+import { MongoClient, ServerApiVersion } from "mongodb";
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(upload.array());
+app.use(express.static('public'));
 
 import cors from "cors";
 const corsOptions ={
@@ -132,10 +136,13 @@ app.get('/getTopArtists*', (req, res) => {
     console.log("getting top artists...")
 })
 
-app.put('/addConcert*', (req, res) => {
+app.post('/addConcert*', async (req, res) => {
     console.log("adding concert...")
     console.log(req.query.id)
-    console.log(req.headers)
+    console.log(req.query.concertid)
+    await addUser(req.query.id)
+    await addConcertToUser(req.query.id, req.query.concertid)
+
     res.send("yay")
 
 })

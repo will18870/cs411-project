@@ -15,9 +15,8 @@ export default function SingleConcert() {
     const handleClick = async () => {
         setUpdating(true);
         try {
-            const response = await fetch(`http://localhost:3000/addConcert?id=` + localStorage.getItem('spotify_id'), {
-                method: 'PUT',
-                headers: event,
+            const response = await fetch(`http://localhost:3000/addConcert?id=` + localStorage.getItem('spotify_id') + '&concertid=' + id, {
+                method: 'POST',
             });
             if (!response.ok) {
                 throw new Error('Update failed');
