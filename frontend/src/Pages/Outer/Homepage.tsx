@@ -3,8 +3,30 @@ import Footer from "../../components/Footer"
 import spo from '../../Resources/tst1.png';
 import { Carousel } from 'antd';
 import { handleSpotifyLogin } from "../../components/LoginOauth";
+import {useEffect, useState} from "react";
+import {ConcertSearch, getUserFavs} from "../../components/apidata";
 
 function Home() {
+
+    const [eventlist, setEventList] = useState<any[]>([]);
+
+    useEffect(() => {
+
+        async function fetchID() {
+            fetch("http://localhost:3000/getId?token=" + localStorage.getItem('spotify_access_token'))
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('spotify_id', JSON.parse(data).id)
+                    console.log("spotify id: " + localStorage.getItem('spotify_id'))
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }
+        if (localStorage.getItem('spotify_access_token')) {
+            fetchID();
+        }
+    }, []);
     const onChange = (currentSlide: number) => {
         console.log(currentSlide);
     };

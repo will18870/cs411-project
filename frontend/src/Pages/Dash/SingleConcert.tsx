@@ -8,8 +8,32 @@ import { useEffect, useState } from 'react';
 
 export default function SingleConcert() {
     const { id } = useParams<{ id: string }>();
-    // console.log(id);
+
+    const [updating, setUpdating] = useState(false);
     const [event, setevent] = useState<any>();
+
+    const handleClick = async () => {
+        setUpdating(true);
+        try {
+            const response = await fetch(`/api/events/`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ /* put request body here */ }),
+            });
+            if (!response.ok) {
+                throw new Error('Update failed');
+            }
+            // handle successful update
+        } catch (error) {
+            // handle error
+        } finally {
+            setUpdating(false);
+        }
+    };
+
+    // console.log(id);
     useEffect(() => {
         async function fetchConcerts() {
             const data = await IdSearch(id ?? "");
@@ -19,15 +43,19 @@ export default function SingleConcert() {
         fetchConcerts();
     }, [id])
 
-    const name = event?.name;
-    const image = event?.images[0].url;
-    const price = event?.priceRanges[0].min;
-    const description = event?.info;
-    const address = event?._embedded.venues[0].name;
-    const date = event?.dates.start.localDate;
-    const time = event?.dates.start.localTime;
-    const url = event?.url;
-    const genre = event?.genre;
+    const name = event?.name ?? "";
+    const image = event?.images[0].url ?? "";
+    const price = event?.priceRanges?.[0]?.min ?? " Price Not Found :(";
+    const description = event?.info ?? "";
+    const address = event?._embedded.venues[0].name ?? "";
+    const date = event?.dates.start.localDate ?? "";
+    const time = event?.dates.start.localTime ?? "";
+    const url = event?.url ?? "";
+    const genre = event?.genre ?? "";
+
+    if (!event) {
+        return (<div>Loading...</div>)
+    }
 
 
     return (
@@ -52,7 +80,7 @@ export default function SingleConcert() {
                         <div className='flex ' >
                             <button className="mt-8 border-2 border-black rounded-xl p-3 mr-6 
                             font-bold hover:bg-red-500 hover:text-white w-24 
-                            content-center " >FOLLOW</button>
+                            content-center " onClick={handleClick} disabled={updating}>FOLLOW</button>
                             <button className="mt-8 border-2 border-black rounded-xl p-3 
                             font-bold hover:bg-spotify hover:text-white  
                             content-center text-md"

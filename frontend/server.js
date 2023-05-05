@@ -5,6 +5,8 @@ import request from "request";
 import bodyParser from "body-parser"
 const app = express();
 
+import MongoClient from "mongodb";
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -69,6 +71,24 @@ app.get('/getConcerts*', (req, res) => {
 
 })
 
+app.get('/getId*', (req, res) => {
+    console.log("getting id...")
+    let token = req.query.token
+    const options = {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }
+    request('https://api.spotify.com/v1/me', options, function (error, response, body) {
+        if (!error) {
+            res.json(body)
+            console.log(body)
+        } else {
+            res.json({})
+        }
+    })
+
+})
 app.get('/getTopArtists*', (req, res) => {
     let token = req.query.token
     const options = {
@@ -159,6 +179,122 @@ app.get('/getTopGenres*', (req, res) => {
     })
     console.log("getting top genres...")
 })
+
+
+// db helper methods
+async function addConcertToUser(name, concert) {
+    const uri = "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const result = await client.db("Users").collection("Users_Concert").updateOne(
+            { name },
+            { $addToSet: { concert } } //here addToSet only adds the concert to the array if it isn't there already
+        );
+        console.log(`${result.modifiedCount} document(s) updated.`);
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function addUser(name) {
+    const uri = "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+
+        const userCollection = client.db("Users").collection("Users_Concert");
+
+        // Check if the user already exists
+        const existingUser = await userCollection.findOne({ name });
+        if (existingUser) {
+            console.log(`User ${name} already exists.`);
+            return;
+        }
+
+        // Create a new user object
+        const newUser = {
+            name,
+            concerts: []
+        };
+
+        // Insert the new user into the collection
+        const result = await userCollection.insertOne(newUser);
+        console.log(`New user ${name} added with ID: ${result.insertedId}`);
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function deleteConcertFromUser(name, title) {
+    const uri =
+        "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+
+        const userCollection = client.db("Users").collection("Users_Concert");
+
+        // Find the user's concert array by name
+        const user = await userCollection.findOne({ name: name });
+        const concertArray = user.concert;
+
+        // Find the index of the concert object with the specified artist
+        const index = concertArray.findIndex(
+            (concert) => concert.title === title
+        );
+
+        // If the concert object is found, remove it from the array and update the user document
+        if (index >= 0) {
+            concertArray.splice(index, 1);
+            await userCollection.updateOne(
+                { name: name },
+                { $set: { concert: concertArray } }
+            );
+            console.log(`Deleted concert by ${title} from ${name}`);
+        } else {
+            console.log(`No concert by ${title} found for ${name}`);
+        }
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function getConcertTitlesByUserName(userName) {
+    const uri = "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
+    const client = new MongoClient(uri);
+
+
+
+    try {
+        await client.connect();
+        const database = client.db("Users");
+        const collection = database.collection("Users_Concert");
+
+        const userConcerts = await collection.findOne({ name: userName });
+
+        if (userConcerts && userConcerts.concert) {
+            const concertTitles = userConcerts.concert.map(concert => concert.title);
+            return concertTitles;
+        }
+
+        return [];
+    } catch (e) {
+        console.error(e);
+        return [];
+    } finally {
+        await client.close();
+    }
+}
 
 
 const { PORT = 3000 } = process.env;

@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const handleSpotifyLogin = async () => {
   localStorage.removeItem('spotify_access_token');
+  localStorage.removeItem('spotify_id');
   const client_id = '8368d220a5bd459db1f24d384a859cf7';
   const redirect_uri = 'http://localhost:5173/callback';
   const scopes = ['user-read-private', 'user-read-email',
@@ -16,6 +17,7 @@ export const handleSpotifyLogin = async () => {
   window.location.href = url;
   
   const hash = window.location.hash.substring(1);
+  console.log(hash)
   const params = new URLSearchParams(hash);
   const accessToken = params.get('access_token');
   const refreshToken = params.get('refresh_token');
