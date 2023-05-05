@@ -7,7 +7,7 @@ export default function Favourite() {
             <DashTopbar />
             <div className="ml-16 mt-12 ">
                 <p className="font-semibold text-5xl text-black ">Favourite</p>
-                <ConcertCards searchindex="kpop" num={1} type="" />
+                <ConcertCards searchindex="kpop" num={1} type="db" />
             </div>
             <div className="bottom-component mt-auto">
                 <Footer />
