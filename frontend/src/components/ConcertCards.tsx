@@ -1,6 +1,6 @@
 import { ConcertType } from "../Router/Types.types";
 import ConcertCard from './ConcertCard';
-import { ConcertSearch, getUserFavs } from "./apidata"
+import { ConcertSearch, getUserFavs, getUserFollows, IdSearch } from "./apidata"
 import { useEffect, useState } from "react";
 
 interface index {
@@ -15,6 +15,26 @@ function ConcertCards(props: index) {
 
   useEffect(() => {
     async function fetchConcerts() {
+
+        if (type == "db") {
+            const data = await getUserFollows()
+            if (!data) {
+                const data = await ConcertSearch("Boston", "keyword")
+                const sliced = data?.slice(0, num);
+                setEventList(sliced ?? []);
+                return
+            }
+
+            const concerts = JSON.parse(data)
+            let result = []
+            for (let i = 0; i < concerts.concerts.length; i++) {
+                const event = await IdSearch(concerts.concerts[i].id)
+                if (event)
+                    result.push(event)
+            }
+            setEventList(result)
+            return
+        }
 
         if (type == "rec") {
             const data = await getUserFavs("genres")

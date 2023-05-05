@@ -146,6 +146,25 @@ app.post('/addConcert*', async (req, res) => {
     res.send("yay")
 
 })
+
+app.get('/getDB*', async (req, res) => {
+    console.log("getting concerts from db...")
+    console.log(req.query.id)
+
+    let result = await getConcertIdsByUsername(req.query.id)
+    console.log(result)
+    let concerts = ' { "concerts":['
+    for (let i = 0; i < result.length; i++) {
+
+        concerts += '{ "id":"' + result[i] + '"},'
+
+    }
+    concerts = concerts.slice(0, concerts.length - 1) + '] }'
+    JSON.parse(concerts)
+    console.log(concerts)
+    res.json(concerts)
+
+})
 app.get('/getTopGenres*', (req, res) => {
     let token = req.query.token
     const options = {
@@ -283,7 +302,7 @@ async function deleteConcertFromUser(name, title) {
     }
 }
 
-async function getConcertTitlesByUserName(userName) {
+async function getConcertIdsByUsername(userName) {
     const uri = "mongodb+srv://acheng1:123albert123cheng@cluster0.bpmkkw8.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
 
@@ -297,7 +316,7 @@ async function getConcertTitlesByUserName(userName) {
         const userConcerts = await collection.findOne({ name: userName });
 
         if (userConcerts && userConcerts.concert) {
-            const concertTitles = userConcerts.concert.map(concert => concert.title);
+            const concertTitles = userConcerts.concert;
             return concertTitles;
         }
 

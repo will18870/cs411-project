@@ -112,6 +112,30 @@ async function ConcertSearch(key: string, type: string) {
   }
 }
 
+async function getUserFollows() {
+  const url = `http://localhost:3000/getDB?id=` + localStorage.getItem('spotify_id')
+
+  if (!localStorage.getItem('spotify_access_token')) {
+    return null
+  }
+  const token = localStorage.getItem('spotify_access_token');
+  try {
+    // Send the API request and handle the response
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : ""
+    window.console.log(data)
+    return data;
+  } catch (error) {
+    console.error(error);
+    return { concerts: [] };
+  }
+}
+
 async function IdSearch(key: string) {
   const url = "https://app.ticketmaster.com//discovery/v2/events.json"
   let params: SearchParams = {
@@ -133,4 +157,4 @@ async function IdSearch(key: string) {
     console.error(error);
   }
 }
-export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch, IdSearch, getUserFavs };
+export { GetArtistjson, FavArtistjson, Userjson, ConcertSearch, IdSearch, getUserFavs, getUserFollows };
