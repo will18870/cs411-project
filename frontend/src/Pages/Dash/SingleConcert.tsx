@@ -15,17 +15,15 @@ export default function SingleConcert() {
     const handleClick = async () => {
         setUpdating(true);
         try {
-            const response = await fetch(`/api/events/`, {
+            const response = await fetch(`http://localhost:3000/addConcert?id=` + localStorage.getItem('spotify_id'), {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ /* put request body here */ }),
+                headers: event,
             });
             if (!response.ok) {
                 throw new Error('Update failed');
             }
             // handle successful update
+            console.log(response)
         } catch (error) {
             // handle error
         } finally {

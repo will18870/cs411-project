@@ -132,6 +132,13 @@ app.get('/getTopArtists*', (req, res) => {
     console.log("getting top artists...")
 })
 
+app.put('/addConcert*', (req, res) => {
+    console.log("adding concert...")
+    console.log(req.query.id)
+    console.log(req.headers)
+    res.send("yay")
+
+})
 app.get('/getTopGenres*', (req, res) => {
     let token = req.query.token
     const options = {
